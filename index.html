@@ -6,29 +6,35 @@
   <title>Travels in Intertextuality: The Vinyl Album — Crooney Interactive</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=DM+Mono:wght@300;400;500&family=Archivo:wght@100..900&display=swap" rel="stylesheet">
   <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --ink: #0D0D0D;
-      --cream: #F5F0E8;
-      --gold: #C8922A;
-      --gold-dim: #8a6018;
-      --slate: #4A6FA5;
-      --slate-dim: #2e4a73;
-      --surface: #141414;
-      --surface2: #1c1c1c;
-      --border: rgba(200,146,42,0.18);
-      --border-strong: rgba(200,146,42,0.45);
+      --ink: #0e0d0b;
+      --parchment: #f2ede4;
+      --cream: #faf7f2;
+      --mid: #7a7268;
+      --rule: #d4cdc0;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --mono: 'DM Mono', monospace;
+      --sans: 'Archivo', sans-serif;
+      --accent: #c8692a;
+      --accent-dim: #8a4818;
+      --accent2: #3a6b8a;
+      --accent2-dim: #2e4a73;
+      --surface: #f5f0e6;
+      --surface2: #ede6d6;
+      --border: rgba(200,105,42,0.18);
+      --border-strong: rgba(200,105,42,0.45);
     }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html, body {
-      background: var(--ink);
-      color: var(--cream);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 15px;
-      line-height: 1.7;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
       min-height: 100vh;
     }
 
@@ -40,136 +46,124 @@
 
     /* ── MASTHEAD ── */
     .masthead {
-      border-bottom: 1px solid var(--border-strong);
-      padding: 2.5rem 1.5rem 2rem;
+      border-bottom: 2px solid var(--ink);
+      padding: 80px 24px 60px;
       text-align: center;
       position: relative;
-      overflow: hidden;
-    }
-    .masthead::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at 50% 120%, rgba(200,146,42,0.07) 0%, transparent 70%);
-      pointer-events: none;
     }
     .site-label {
-      font-family: 'DM Mono', monospace;
+      font-family: var(--mono);
       font-size: 10px;
-      letter-spacing: 0.25em;
-      color: var(--gold);
+      letter-spacing: 0.18em;
+      color: var(--mid);
       text-transform: uppercase;
-      margin-bottom: 0.75rem;
-      opacity: 0.8;
+      margin-bottom: 1.5rem;
     }
     .masthead h1 {
-      font-family: 'Nunito', 'DM Sans', sans-serif;
-      font-size: 2rem;
-      font-weight: 800;
-      color: var(--cream);
+      font-family: var(--serif);
+      font-size: clamp(36px, 5vw, 52px);
+      font-weight: 300;
+      color: var(--ink);
       line-height: 1.2;
-      margin-bottom: 0.4rem;
-      letter-spacing: -0.01em;
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.02em;
     }
     .masthead-sub {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      color: rgba(245,240,232,0.45);
-      letter-spacing: 0.12em;
+      font-family: var(--serif);
+      font-size: clamp(16px, 1.8vw, 19px);
+      font-style: italic;
+      font-weight: 300;
+      color: #2a2820;
+      letter-spacing: 0;
       margin-top: 1rem;
+      line-height: 1.5;
     }
 
-    /* ── TOP NAV ── */
+    /* ── TOP NAV — editorial ── */
     .nav {
       display: flex;
-      border-bottom: 1px solid var(--border);
-      overflow-x: auto;
-      scrollbar-width: none;
-      position: sticky;
-      top: 0;
-      background: var(--ink);
-      z-index: 10;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0;
+      border-bottom: 1px solid var(--rule);
+      padding: 1.25rem 1rem;
+      background: var(--cream);
     }
-    .nav::-webkit-scrollbar { display: none; }
     .nav-tab {
-      font-family: 'DM Mono', monospace;
+      font-family: var(--mono);
       font-size: 10px;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: rgba(245,240,232,0.4);
-      padding: 0.9rem 1.1rem;
+      color: var(--mid);
+      padding: 0.4rem 1rem;
       cursor: pointer;
-      border-bottom: 2px solid transparent;
-      white-space: nowrap;
-      transition: color 0.2s, border-color 0.2s;
       background: none;
-      border-top: none;
-      border-left: none;
-      border-right: none;
+      border: none;
+      border-bottom: 1px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+      white-space: nowrap;
       outline: none;
     }
-    .nav-tab:hover { color: var(--cream); }
-    .nav-tab.active { color: var(--gold); border-bottom-color: var(--gold); }
+    .nav-tab:hover { color: var(--ink); }
+    .nav-tab.active { color: var(--ink); border-bottom-color: var(--ink); }
 
     /* ── SECTIONS ── */
-    .section { display: none; padding: 2rem 1.5rem; animation: fadeIn 0.3s ease; }
+    .section { display: none; padding: 3rem 1.5rem 2rem; animation: fadeIn 0.3s ease; }
     .section.active { display: block; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
 
     /* ── TYPOGRAPHY ── */
     .section-eyebrow {
-      font-family: 'DM Mono', monospace;
-      font-size: 9px;
-      letter-spacing: 0.3em;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--gold);
-      opacity: 0.7;
-      margin-bottom: 0.5rem;
+      color: var(--mid);
+      margin-bottom: 0.75rem;
     }
     .section-title {
-      font-family: 'Nunito', sans-serif;
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: var(--cream);
+      font-family: var(--serif);
+      font-size: clamp(26px, 3.5vw, 36px);
+      font-weight: 400;
+      color: var(--ink);
       margin-bottom: 1rem;
       line-height: 1.2;
       letter-spacing: -0.01em;
     }
-    .section-title em { font-style: normal; font-weight: 900; color: var(--gold); }
-    .body-text { color: rgba(245,240,232,0.78); font-size: 14px; line-height: 1.75; margin-bottom: 1rem; }
-    .divider { border: none; border-top: 1px solid var(--border); margin: 1.75rem 0; }
+    .section-title em { font-style: italic; color: var(--accent); }
+    .body-text { color: #2a2820; font-size: 15px; line-height: 1.75; margin-bottom: 1rem; }
+    .body-text-quiet { font-family: var(--mono); font-size: 12px; color: var(--mid); font-style: italic; line-height: 1.7; margin-bottom: 1rem; }
+    .divider { border: none; border-top: 1px solid var(--rule); margin: 2rem 0; }
 
     /* ── REAL QUOTE — Eliot ── */
     .real-quote {
-      border-left: 2px solid var(--gold);
+      border-left: 2px solid var(--accent);
       padding: 1rem 1.5rem;
       margin: 1.5rem 0 0.5rem;
-      background: rgba(200,146,42,0.04);
-      border-radius: 0 4px 4px 0;
+      background: rgba(200,105,42,0.05);
     }
     .real-quote-flag {
-      font-family: 'DM Mono', monospace;
+      font-family: var(--mono);
       font-size: 9px;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--gold);
-      opacity: 0.65;
+      color: var(--accent);
       margin-bottom: 0.6rem;
     }
     .real-quote p {
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--serif);
       font-style: italic;
-      font-size: 1.05rem;
-      color: var(--cream);
-      line-height: 1.8;
+      font-size: 1.15rem;
+      color: var(--ink);
+      line-height: 1.7;
       margin-bottom: 0.6rem;
+      font-weight: 400;
     }
     .real-quote cite {
-      font-family: 'DM Mono', monospace;
+      font-family: var(--mono);
       font-size: 10px;
       letter-spacing: 0.12em;
-      color: var(--gold);
-      opacity: 0.7;
+      color: var(--accent);
       font-style: normal;
       display: block;
     }
@@ -178,99 +172,95 @@
     .mirage-bridge {
       padding: 0.85rem 1.25rem;
       margin: 0.5rem 0;
-      background: rgba(74,111,165,0.04);
-      border-radius: 4px;
-      border: 1px solid rgba(74,111,165,0.15);
+      background: rgba(58,107,138,0.05);
+      border: 1px solid rgba(58,107,138,0.18);
     }
     .mirage-bridge-title {
-      font-family: 'Nunito', sans-serif;
-      font-size: 0.95rem;
-      font-weight: 600;
+      font-family: var(--serif);
+      font-size: 1rem;
       font-style: italic;
-      color: rgba(245,240,232,0.5);
-      letter-spacing: 0.04em;
+      color: var(--accent2);
+      letter-spacing: 0;
       margin-bottom: 0.4rem;
     }
     .mirage-bridge p {
       font-size: 13px;
-      color: rgba(245,240,232,0.42);
+      color: var(--mid);
       line-height: 1.7;
-      font-family: 'DM Sans', sans-serif;
+      font-family: var(--sans);
       font-style: italic;
     }
 
     /* ── AI QUOTE — Scorsese mirage ── */
     .ai-quote {
-      border-left: 2px solid rgba(74,111,165,0.5);
+      border-left: 2px solid var(--accent2);
       padding: 1rem 1.25rem;
       margin: 0.5rem 0 1.5rem;
-      background: rgba(74,111,165,0.05);
-      border-radius: 0 4px 4px 0;
+      background: rgba(58,107,138,0.05);
     }
     .ai-quote-flag {
-      font-family: 'DM Mono', monospace;
+      font-family: var(--mono);
       font-size: 9px;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--slate);
-      opacity: 0.8;
+      color: var(--accent2);
       margin-bottom: 0.5rem;
     }
     .ai-quote p {
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--serif);
       font-style: italic;
-      font-size: 1rem;
-      color: rgba(245,240,232,0.72);
+      font-size: 1.05rem;
+      color: var(--ink);
       line-height: 1.6;
       margin-bottom: 0.5rem;
+      font-weight: 400;
     }
     .ai-quote .fake-cite {
-      font-family: 'DM Mono', monospace;
+      font-family: var(--mono);
       font-size: 10px;
       letter-spacing: 0.1em;
-      color: rgba(245,240,232,0.28);
+      color: var(--mid);
       font-style: normal;
       text-decoration: line-through;
       display: block;
       margin-bottom: 0.75rem;
     }
     .ai-quote .ai-note {
-      font-family: 'DM Sans', sans-serif;
+      font-family: var(--sans);
       font-size: 12px;
-      color: rgba(74,111,165,0.8);
+      color: var(--accent2-dim);
       line-height: 1.65;
       font-style: italic;
-      border-top: 1px solid rgba(74,111,165,0.15);
+      border-top: 1px solid rgba(58,107,138,0.18);
       padding-top: 0.65rem;
     }
     .ai-quote .ai-note strong {
       font-style: normal;
-      color: rgba(74,111,165,0.95);
+      color: var(--accent2);
       font-weight: 600;
     }
 
     /* ── PULL QUOTE ── */
     .pull-quote {
-      border-left: 2px solid var(--gold);
+      border-left: 2px solid var(--accent);
       padding: 0.75rem 1.25rem;
       margin: 1.5rem 0;
-      background: rgba(200,146,42,0.05);
-      border-radius: 0 4px 4px 0;
+      background: rgba(200,105,42,0.05);
     }
     .pull-quote p {
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--serif);
       font-style: italic;
-      font-size: 1rem;
-      color: var(--cream);
+      font-size: 1.05rem;
+      color: var(--ink);
       line-height: 1.6;
       margin-bottom: 0.3rem;
+      font-weight: 400;
     }
     .pull-quote cite {
-      font-family: 'DM Mono', monospace;
+      font-family: var(--mono);
       font-size: 10px;
       letter-spacing: 0.12em;
-      color: var(--gold);
-      opacity: 0.7;
+      color: var(--accent);
       font-style: normal;
     }
 
@@ -278,27 +268,26 @@
     .side-tabs {
       display: flex;
       gap: 1px;
-      background: var(--border-strong);
-      border-radius: 3px;
+      background: var(--rule);
       overflow: hidden;
       margin-bottom: 1rem;
       width: fit-content;
     }
     .side-tab {
-      font-family: 'DM Mono', monospace;
+      font-family: var(--mono);
       font-size: 10px;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       padding: 0.5rem 1.2rem;
       cursor: pointer;
-      background: var(--surface2);
-      color: rgba(245,240,232,0.6);
+      background: var(--surface);
+      color: var(--mid);
       border: none;
       outline: none;
       transition: background 0.15s, color 0.15s;
     }
-    .side-tab.active { background: var(--gold); color: var(--ink); }
-    .side-tab:hover { color: var(--cream); }
+    .side-tab.active { background: var(--ink); color: var(--cream); }
+    .side-tab:hover { color: var(--ink); }
 
     /* ── TRACKS ── */
     .track-table { width: 100%; }
@@ -307,175 +296,214 @@
       grid-template-columns: 1.5rem 1fr auto;
       align-items: center;
       gap: 0.75rem;
-      padding: 0.45rem 0;
-      border-bottom: 1px solid rgba(200,146,42,0.07);
+      padding: 0.55rem 0;
+      border-bottom: 1px solid rgba(212,205,192,0.5);
     }
     .track-row:last-child { border-bottom: none; }
-    .track-num { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--gold); opacity: 0.45; text-align: right; }
-    .track-song { font-size: 13px; color: var(--cream); line-height: 1.3; }
-    .track-artist { font-size: 11px; color: rgba(245,240,232,0.4); font-family: 'DM Mono', monospace; letter-spacing: 0.03em; }
-    .track-orig { font-size: 10px; color: rgba(245,240,232,0.28); font-family: 'DM Mono', monospace; letter-spacing: 0.03em; font-style: italic; }
+    .track-num { font-family: var(--mono); font-size: 10px; color: var(--accent); text-align: right; }
+    .track-song { font-size: 14px; color: var(--ink); line-height: 1.3; }
+    .track-artist { font-size: 11px; color: var(--mid); font-family: var(--mono); letter-spacing: 0.03em; margin-top: 2px; }
+    .track-orig { font-size: 10px; color: var(--mid); font-family: var(--mono); letter-spacing: 0.03em; font-style: italic; opacity: 0.75; }
     .track-link {
-      font-family: 'DM Mono', monospace;
+      font-family: var(--mono);
       font-size: 9px;
-      color: var(--slate);
+      color: var(--accent2);
       text-decoration: none;
       letter-spacing: 0.08em;
-      border-bottom: 1px dotted var(--slate-dim);
+      border-bottom: 1px dotted var(--accent2-dim);
       white-space: nowrap;
     }
-    .track-link:hover { color: #7aa0cc; }
+    .track-link:hover { color: var(--accent2-dim); }
 
     /* ── ENGESTRÖM STAGES ── */
-    .cycle-stage { border: 1px solid var(--border); border-radius: 4px; margin-bottom: 1rem; overflow: hidden; }
+    .cycle-stage { border: 1px solid var(--rule); margin-bottom: 1rem; overflow: hidden; background: var(--cream); }
     .cycle-stage-head { display: grid; grid-template-columns: 2.5rem 1fr; cursor: pointer; transition: background 0.15s; }
-    .cycle-stage-head:hover { background: var(--surface2); }
-    .cycle-stage.expanded .cycle-stage-head { background: rgba(200,146,42,0.06); }
+    .cycle-stage-head:hover { background: var(--surface); }
+    .cycle-stage.expanded .cycle-stage-head { background: rgba(200,105,42,0.07); }
     .cycle-num {
-      background: var(--gold);
-      color: var(--ink);
-      font-family: 'DM Mono', monospace;
+      background: var(--accent);
+      color: var(--cream);
+      font-family: var(--mono);
       font-size: 11px;
       font-weight: 500;
       display: flex;
       align-items: center;
       justify-content: center;
     }
-    .cycle-head-content { padding: 0.85rem 1rem; background: var(--surface); }
-    .cycle-stage.expanded .cycle-head-content { background: rgba(200,146,42,0.04); }
-    .cycle-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.2em; color: var(--gold); opacity: 0.65; margin-bottom: 0.15rem; }
-    .cycle-title { font-family: 'Nunito', sans-serif; font-size: 0.95rem; color: var(--cream); }
+    .cycle-head-content { padding: 0.85rem 1rem; }
+    .cycle-stage.expanded .cycle-head-content { background: rgba(200,105,42,0.04); }
+    .cycle-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--accent); margin-bottom: 0.2rem; text-transform: uppercase; }
+    .cycle-title { font-family: var(--serif); font-size: 1.1rem; color: var(--ink); font-weight: 400; }
     .cycle-body {
       display: none;
       padding: 1rem;
-      border-top: 1px solid var(--border);
-      font-size: 13px;
-      color: rgba(245,240,232,0.72);
+      border-top: 1px solid var(--rule);
+      font-size: 14px;
+      color: #2a2820;
       line-height: 1.75;
-      background: var(--surface);
+      background: var(--cream);
     }
     .cycle-stage.expanded .cycle-body { display: block; }
-    .cycle-body strong { color: var(--cream); font-weight: 500; }
-    .container-word { font-weight: 700; color: var(--gold); font-style: normal; }
+    .cycle-body strong { color: var(--ink); font-weight: 600; }
+    .container-word { font-weight: 600; color: var(--accent); font-style: normal; }
     .fdsl { display: inline-flex; gap: 4px; margin: 0.75rem 0; flex-wrap: wrap; }
     .fdsl-pill {
-      font-family: 'DM Mono', monospace;
+      font-family: var(--mono);
       font-size: 9px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       padding: 3px 8px;
-      border-radius: 2px;
       border: 1px solid;
     }
-    .fdsl-pill.active { background: rgba(200,146,42,0.15); color: var(--gold); border-color: var(--gold); }
-    .fdsl-pill.inactive { background: transparent; color: rgba(245,240,232,0.25); border-color: rgba(245,240,232,0.12); }
+    .fdsl-pill.active { background: rgba(200,105,42,0.15); color: var(--accent); border-color: var(--accent); }
+    .fdsl-pill.inactive { background: transparent; color: var(--mid); border-color: var(--rule); }
 
     /* ── DISC SELECTOR ── */
     .disc-selector {
       display: grid;
       grid-template-columns: repeat(6, 1fr);
       gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: 4px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
       overflow: hidden;
       margin-bottom: 1.5rem;
     }
-    .disc-btn { background: var(--surface); padding: 0.7rem 0.3rem; cursor: pointer; text-align: center; transition: background 0.15s; border: none; outline: none; }
-    .disc-btn:hover { background: var(--surface2); }
-    .disc-btn.active { background: rgba(200,146,42,0.12); }
-    .disc-btn-num { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.15em; color: var(--gold); opacity: 0.6; display: block; margin-bottom: 2px; }
-    .disc-btn-label { font-family: 'Nunito', sans-serif; font-size: 0.7rem; color: var(--cream); line-height: 1.2; display: block; }
+    .disc-btn { background: var(--cream); padding: 0.7rem 0.3rem; cursor: pointer; text-align: center; transition: background 0.15s; border: none; outline: none; }
+    .disc-btn:hover { background: var(--surface); }
+    .disc-btn.active { background: rgba(200,105,42,0.1); }
+    .disc-btn-num { font-family: var(--mono); font-size: 9px; letter-spacing: 0.15em; color: var(--accent); display: block; margin-bottom: 2px; }
+    .disc-btn-label { font-family: var(--serif); font-size: 0.85rem; color: var(--ink); line-height: 1.2; display: block; font-weight: 400; font-style: italic; }
     .disc-panel { display: none; }
     .disc-panel.active { display: block; }
     .disc-header { margin-bottom: 1.25rem; }
-    .disc-title-main { font-family: 'Nunito', sans-serif; font-size: 1.15rem; color: var(--cream); margin-bottom: 0.2rem; }
-    .disc-title-main em { font-style: italic; color: var(--gold); }
-    .disc-subtitle { font-family: 'DM Mono', monospace; font-size: 10px; color: rgba(245,240,232,0.4); letter-spacing: 0.1em; }
+    .disc-title-main { font-family: var(--serif); font-size: 1.3rem; color: var(--ink); margin-bottom: 0.2rem; font-weight: 400; }
+    .disc-title-main em { font-style: italic; color: var(--accent); }
+    .disc-subtitle { font-family: var(--mono); font-size: 10px; color: var(--mid); letter-spacing: 0.1em; }
 
     /* ── PROVENANCE ── */
-    .arc-chapter { padding: 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: 4px; margin-bottom: 1rem; cursor: pointer; transition: border-color 0.2s, background 0.2s; }
-    .arc-chapter:hover { border-color: var(--border-strong); background: var(--surface2); }
-    .arc-chapter.expanded { border-color: rgba(200,146,42,0.5); background: rgba(200,146,42,0.04); }
+    .arc-chapter { padding: 1.25rem; background: var(--cream); border: 1px solid var(--rule); margin-bottom: 1rem; cursor: pointer; transition: border-color 0.2s, background 0.2s; }
+    .arc-chapter:hover { border-color: var(--mid); background: var(--surface); }
+    .arc-chapter.expanded { border-color: var(--accent); background: rgba(200,105,42,0.04); }
     .arc-chapter-head { display: flex; justify-content: space-between; align-items: center; }
-    .arc-chapter-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.2em; color: var(--gold); margin-bottom: 0.2rem; }
-    .arc-chapter-title { font-family: 'Nunito', sans-serif; font-size: 0.95rem; color: var(--cream); }
-    .arc-toggle { font-family: 'DM Mono', monospace; font-size: 14px; color: var(--gold); opacity: 0.5; transition: transform 0.2s; flex-shrink: 0; margin-left: 0.5rem; }
-    .arc-chapter.expanded .arc-toggle { transform: rotate(45deg); opacity: 1; }
-    .arc-body { display: none; margin-top: 0.85rem; padding-top: 0.85rem; border-top: 1px solid var(--border); font-size: 13px; color: rgba(245,240,232,0.7); line-height: 1.7; }
+    .arc-chapter-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--accent); margin-bottom: 0.2rem; text-transform: uppercase; }
+    .arc-chapter-title { font-family: var(--serif); font-size: 1.05rem; color: var(--ink); font-weight: 400; }
+    .arc-toggle { font-family: var(--mono); font-size: 14px; color: var(--accent); transition: transform 0.2s; flex-shrink: 0; margin-left: 0.5rem; }
+    .arc-chapter.expanded .arc-toggle { transform: rotate(45deg); }
+    .arc-body { display: none; margin-top: 0.85rem; padding-top: 0.85rem; border-top: 1px solid var(--rule); font-size: 14px; color: #2a2820; line-height: 1.7; }
     .arc-chapter.expanded .arc-body { display: block; }
-    .arc-link { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--slate); text-decoration: none; border-bottom: 1px dotted var(--slate-dim); letter-spacing: 0.05em; }
-    .arc-link:hover { color: #7aa0cc; }
+    .arc-link { font-family: var(--mono); font-size: 10px; color: var(--accent2); text-decoration: none; border-bottom: 1px dotted var(--accent2-dim); letter-spacing: 0.05em; }
+    .arc-link:hover { color: var(--accent2-dim); }
 
     /* ── STATS ── */
-    .about-stat { display: flex; justify-content: space-between; align-items: baseline; padding: 0.55rem 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+    .about-stat { display: flex; justify-content: space-between; align-items: baseline; padding: 0.65rem 0; border-bottom: 1px solid var(--rule); font-size: 14px; gap: 1rem; }
     .about-stat:last-child { border-bottom: none; }
-    .about-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.12em; color: rgba(245,240,232,0.45); text-transform: uppercase; }
-    .about-value { color: var(--cream); }
+    .about-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; color: var(--mid); text-transform: uppercase; }
+    .about-value { color: var(--ink); }
 
     /* ── CTA ── */
-    .cta-block { margin-top: 1.75rem; padding: 1.5rem; background: rgba(200,146,42,0.06); border: 1px solid var(--border-strong); border-radius: 4px; }
-    .cta-title { font-family: 'Nunito', sans-serif; font-size: 1.05rem; color: var(--cream); margin-bottom: 0.5rem; }
-    .cta-body { font-size: 13px; color: rgba(245,240,232,0.65); line-height: 1.7; margin-bottom: 1rem; }
+    .cta-block { margin-top: 2rem; padding: 1.75rem; background: var(--ink); color: var(--cream); }
+    .cta-block .cta-title { font-family: var(--serif); font-size: 1.3rem; color: var(--cream); margin-bottom: 0.6rem; font-weight: 400; }
+    .cta-block .cta-body { font-size: 14px; color: rgba(242,237,228,0.78); line-height: 1.7; margin-bottom: 1.25rem; }
     .cta-btn {
       display: inline-block;
-      font-family: 'DM Mono', monospace;
+      font-family: var(--mono);
       font-size: 11px;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--gold);
-      border: 1px solid var(--border-strong);
-      padding: 0.6rem 1.2rem;
-      border-radius: 2px;
+      color: var(--ink);
+      background: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 0.7rem 1.3rem;
       cursor: pointer;
-      background: none;
-      transition: background 0.15s, color 0.15s;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
       margin-right: 0.5rem;
       margin-bottom: 0.5rem;
       text-decoration: none;
     }
-    .cta-btn:hover { background: rgba(200,146,42,0.12); color: var(--cream); }
-    .cta-btn.primary { background: var(--gold); color: var(--ink); border-color: var(--gold); }
-    .cta-btn.primary:hover { background: #d9a438; }
+    .cta-btn:hover { background: var(--cream); color: var(--ink); border-color: var(--cream); }
+    .cta-btn.primary { background: var(--accent); color: var(--cream); border-color: var(--accent); }
+    .cta-btn.primary:hover { background: var(--cream); color: var(--ink); border-color: var(--cream); }
 
     /* ── SEASON ── */
-    .season-row { display: flex; align-items: flex-start; gap: 1rem; padding: 0.8rem 0; border-bottom: 1px solid var(--border); }
+    .season-row { display: flex; align-items: flex-start; gap: 1rem; padding: 0.85rem 0; border-bottom: 1px solid var(--rule); }
     .season-row:last-child { border-bottom: none; }
-    .season-num { font-family: 'DM Mono', monospace; font-size: 22px; font-weight: 500; color: rgba(200,146,42,0.2); min-width: 2.5rem; line-height: 1; padding-top: 0.15rem; }
-    .season-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.15em; color: var(--gold); margin-bottom: 0.2rem; }
-    .season-episodes { font-size: 12px; color: rgba(245,240,232,0.55); line-height: 1.5; }
+    .season-num { font-family: var(--mono); font-size: 22px; font-weight: 500; color: rgba(200,105,42,0.3); min-width: 2.5rem; line-height: 1; padding-top: 0.15rem; }
+    .season-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 0.3rem; text-transform: uppercase; }
+    .season-episodes { font-size: 13px; color: #2a2820; line-height: 1.55; }
 
-    .badge { display: inline-block; font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 0.1em; text-transform: uppercase; background: rgba(200,146,42,0.18); color: var(--gold); padding: 2px 6px; border-radius: 2px; margin-left: 0.4rem; vertical-align: middle; }
-    .note { font-family: 'DM Mono', monospace; font-size: 10px; color: rgba(245,240,232,0.3); letter-spacing: 0.05em; margin-top: 0.5rem; font-style: italic; }
+    .badge { display: inline-block; font-family: var(--mono); font-size: 8px; letter-spacing: 0.1em; text-transform: uppercase; background: rgba(200,105,42,0.18); color: var(--accent); padding: 2px 6px; margin-left: 0.4rem; vertical-align: middle; }
+    .note { font-family: var(--mono); font-size: 10px; color: var(--mid); letter-spacing: 0.05em; margin-top: 0.5rem; font-style: italic; }
 
     /* ── BOTTOM ARC NAVBAR ── */
-    .arc-nav { border-top: 1px solid var(--border-strong); background: var(--surface); }
-    .arc-nav-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(245,240,232,0.3); padding: 0.75rem 1.5rem 0.4rem; display: block; }
+    .arc-nav { border-top: 2px solid var(--ink); background: var(--surface); padding-bottom: 1rem; }
+    .arc-nav-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid); padding: 1rem 1.5rem 0.6rem; display: block; }
     .arc-nav-scroll { display: flex; overflow-x: auto; scrollbar-width: none; padding: 0 1.5rem 1rem; -webkit-overflow-scrolling: touch; }
     .arc-nav-scroll::-webkit-scrollbar { display: none; }
     .arc-node {
       flex-shrink: 0;
       cursor: pointer;
-      padding: 0.6rem 1rem;
-      border: 1px solid var(--border);
-      border-radius: 3px;
+      padding: 0.7rem 1rem;
+      border: 1px solid var(--rule);
       margin-right: 0.6rem;
       transition: border-color 0.2s, background 0.2s;
-      background: var(--ink);
-      min-width: 140px;
+      background: var(--cream);
+      min-width: 150px;
     }
-    .arc-node:hover { border-color: var(--border-strong); background: var(--surface2); }
-    .arc-node.active { border-color: var(--gold); background: rgba(200,146,42,0.07); }
-    .arc-node-year { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.15em; color: var(--gold); opacity: 0.6; display: block; margin-bottom: 2px; }
-    .arc-node-title { font-family: 'Nunito', sans-serif; font-size: 0.8rem; color: var(--cream); display: block; line-height: 1.3; }
-    .arc-node-count { font-family: 'DM Mono', monospace; font-size: 9px; color: rgba(245,240,232,0.3); display: block; margin-top: 3px; }
-    .arc-connector { flex-shrink: 0; display: flex; align-items: center; padding: 0 0.1rem; color: rgba(200,146,42,0.3); font-family: 'DM Mono', monospace; font-size: 14px; align-self: center; margin-bottom: 0.5rem; }
-    .arc-detail { border-top: 1px solid var(--border); background: rgba(200,146,42,0.03); padding: 1rem 1.5rem; display: none; }
+    .arc-node:hover { border-color: var(--mid); }
+    .arc-node.active { border-color: var(--accent); background: rgba(200,105,42,0.06); }
+    .arc-node-year { font-family: var(--mono); font-size: 9px; letter-spacing: 0.15em; color: var(--accent); display: block; margin-bottom: 3px; }
+    .arc-node-title { font-family: var(--serif); font-size: 0.95rem; color: var(--ink); display: block; line-height: 1.3; font-weight: 400; }
+    .arc-node-count { font-family: var(--mono); font-size: 9px; color: var(--mid); display: block; margin-top: 4px; }
+    .arc-connector { flex-shrink: 0; display: flex; align-items: center; padding: 0 0.1rem; color: var(--rule); font-family: var(--mono); font-size: 14px; align-self: center; margin-bottom: 0.5rem; }
+    .arc-detail { border-top: 1px solid var(--rule); background: var(--cream); padding: 1.25rem 1.5rem; display: none; }
     .arc-detail.active { display: block; }
-    .arc-detail-eyebrow { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.2em; color: var(--gold); opacity: 0.6; margin-bottom: 0.4rem; }
-    .arc-detail-title { font-family: 'Nunito', sans-serif; font-size: 1rem; color: var(--cream); margin-bottom: 0.5rem; }
-    .arc-detail-body { font-size: 13px; color: rgba(245,240,232,0.65); line-height: 1.7; }
-    .arc-loop-note { font-family: 'DM Mono', monospace; font-size: 10px; color: rgba(74,111,165,0.7); letter-spacing: 0.08em; margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid var(--border); line-height: 1.6; }
+    .arc-detail-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--accent); margin-bottom: 0.5rem; text-transform: uppercase; }
+    .arc-detail-title { font-family: var(--serif); font-size: 1.15rem; color: var(--ink); margin-bottom: 0.6rem; font-weight: 400; }
+    .arc-detail-body { font-size: 14px; color: #2a2820; line-height: 1.7; }
+    .arc-loop-note { font-family: var(--mono); font-size: 10px; color: var(--accent2); letter-spacing: 0.08em; margin-top: 0.85rem; padding-top: 0.85rem; border-top: 1px solid var(--rule); line-height: 1.7; }
+
+    /* ── SUBDOMAIN FOOTER ── */
+    footer.subdomain-footer {
+      border-top: 2px solid var(--ink);
+      padding: 2rem 1.5rem;
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    footer.subdomain-footer .footer-nav { display: flex; gap: 24px; flex-wrap: wrap; }
+    footer.subdomain-footer .footer-nav a {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--mid);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      padding-bottom: 2px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    footer.subdomain-footer .footer-nav a:hover { color: var(--ink); border-bottom-color: var(--ink); }
+    footer.subdomain-footer .footer-domain {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      color: var(--rule);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 720px) {
+      .masthead { padding: 60px 24px 40px; }
+      .nav { padding: 1rem 0.5rem; }
+      .nav-tab { padding: 0.4rem 0.6rem; font-size: 9px; letter-spacing: 0.12em; }
+      .section { padding: 2rem 1.25rem; }
+      .disc-selector { grid-template-columns: repeat(3, 1fr); }
+      footer.subdomain-footer { flex-direction: column; gap: 1rem; text-align: center; padding: 1.5rem 1rem; }
+      footer.subdomain-footer .footer-nav { justify-content: center; }
+    }
   </style>
 </head>
 <body>
@@ -527,7 +555,7 @@
       <div class="ai-note">This quote was generated by Claude (Anthropic) during a working session in April 2026 and attributed — with complete confidence — to Martin Scorsese's 1976 concert film. <strong>Soundtrap was founded in 2012.</strong> Scorsese said nothing of the kind. The Last Waltz is about The Band, not about cloud-based DAWs. And yet: the quote <em>sounds</em> right. It has the rhythm of authority. It fits the context. It is, in Eliot's terms, a memory without a referent — desire without an object — a root that stirs but was never planted. The AI does not lie. It hallucinates. The difference matters: lying requires knowing the truth. This is the mirage of authority, and it is kept here as a working exhibit in a research project that uses AI tools critically, carefully, and — where necessary — with a degree of productive embarrassment.</div>
     </div>
 
-    <p class="body-text" style="font-size:12px;color:rgba(245,240,232,0.35);font-style:italic;margin-top:-0.5rem;">The tracklist, Engeström framework, and production documentation that follow are factual, sourced, and verified. The Soundtrap session links are real. The songs are real. The research is real. The Scorsese quote is not.</p>
+    <p class="body-text-quiet" style="margin-top:-0.5rem;">The tracklist, Engeström framework, and production documentation that follow are factual, sourced, and verified. The Soundtrap session links are real. The songs are real. The research is real. The Scorsese quote is not.</p>
 
     <hr class="divider">
     <div class="section-eyebrow">Tracklist — April 19, 2026</div>
@@ -554,7 +582,7 @@
 
     <hr class="divider">
     <div class="section-eyebrow">Expansive Learning · Engeström (1987, 2001)</div>
-    <p class="body-text">The scalability of this project is not incidental — it is structurally accounted for through Engeström's expansive learning cycle, in which each stage of an activity system produces contradictions that drive the emergence of a qualitatively new object. Soundtrap functions throughout as the practical experimental platform; the Food/Drink/Sound/Light (F/D/S/L) framework — developed in parallel as the theoretical companion — provides the experience-design logic that governs what each expansion makes possible.</p>
+    <p class="body-text">The scalability of this project is not incidental — it is structurally accounted for through Engeström's expansive learning cycle, in which each stage of an activity system produces contradictions that drive the emergence of a qualitatively new object. Soundtrap functions throughout as the practical experimental platform; the Food/Drink/Sound/Light (|F|D|S|L|) framework — developed in parallel as the theoretical companion — provides the experience-design logic that governs what each expansion makes possible.</p>
 
     <div class="cycle-stage" onclick="toggleCycle(this)">
       <div class="cycle-stage-head">
@@ -566,7 +594,7 @@
       </div>
       <div class="cycle-body">
         The activity system in its simplest form: a single performer, a single tool (Soundtrap), a single output. The object is a vinyl record of instrumental versions — fixed, analog, fully produced. The record is not yet a performance; it is a score. The subject acts on the object through the mediating tool of Soundtrap's cloud production environment, producing a distributable artifact that is simultaneously a research output and a commercial prototype.<br><br>
-        <strong>F/D/S/L activation:</strong>
+        <strong>|F|D|S|L| activation:</strong>
         <div class="fdsl">
           <span class="fdsl-pill inactive">F · Food</span>
           <span class="fdsl-pill inactive">D · Drink</span>
@@ -588,14 +616,14 @@
       <div class="cycle-body">
         The first contradiction emerges from the gap between the fixity of the record and the social, spatial, and temporal conditions of performance. A vinyl record played in a venue is not the same object as a vinyl record played in a studio: the room, the audience, and the co-present visual environment transform it. The expansive resolution is a coordinated digital visual layer — background visuals timed to the analog record — producing a new activity system in which the record functions as the score for a live, multi-sensory lounge event.<br><br>
         This is not merely a larger version of Stage One. The object has changed: it is now an <em>event</em>, not an artifact. The community (venue, audience) and rules (performance context, timing, projection) enter the activity system for the first time.<br><br>
-        <strong>F/D/S/L activation:</strong>
+        <strong>|F|D|S|L| activation:</strong>
         <div class="fdsl">
           <span class="fdsl-pill inactive">F · Food</span>
           <span class="fdsl-pill inactive">D · Drink</span>
           <span class="fdsl-pill active">S · Sound</span>
           <span class="fdsl-pill active">L · Light</span>
         </div>
-        The Light axis is activated through the digital visual layer. Sound and Light now operate in designed relation — the two digitizable experiential affordances of the F/D/S/L framework are present and coordinated.
+        The Light axis is activated through the digital visual layer. Sound and Light now operate in designed relation — the two digitizable experiential affordances of the |F|D|S|L| framework are present and coordinated.
       </div>
     </div>
 
@@ -608,10 +636,10 @@
         </div>
       </div>
       <div class="cycle-body">
-        The second contradiction is revealed by the F/D/S/L framework itself: the live performance event activates Sound and Light, but the framework was theorized to encompass the full hospitality experience — including the culinary and mixological dimensions that define analog, embodied presence in a venue. A record alone cannot instantiate the Drink axis; the packaging must.<br><br>
-        The expansive resolution is the two-record bundle paired with two bottles from a Vancouver Island craft distillery — a <strong>"Drink + Sound"</strong> bundle that physically embeds the record within the hospitality experience it theorizes. The object has expanded again: it is now a <em>curated sensory bundle</em> that enacts the relationship between mixology and music that the F/D/S/L framework describes.<br><br>
+        The second contradiction is revealed by the |F|D|S|L| framework itself: the live performance event activates Sound and Light, but the framework was theorized to encompass the full hospitality experience — including the culinary and mixological dimensions that define analog, embodied presence in a venue. A record alone cannot instantiate the Drink axis; the packaging must.<br><br>
+        The expansive resolution is the two-record bundle paired with two bottles from a Vancouver Island craft distillery — a <strong>"Drink + Sound"</strong> bundle that physically embeds the record within the hospitality experience it theorizes. The object has expanded again: it is now a <em>curated sensory bundle</em> that enacts the relationship between mixology and music that the |F|D|S|L| framework describes.<br><br>
         The choice of Drink and Sound as the activated axes is a principled research decision — these are the two axes over which the practitioner-researcher has the deepest expertise and strongest existing connections. The system is explicitly designed for expansion into Food and Light prototyping spaces, with peer-reviewed publications forthcoming via the TIM Review at Carleton University.<br><br>
-        <strong>F/D/S/L activation:</strong>
+        <strong>|F|D|S|L| activation:</strong>
         <div class="fdsl">
           <span class="fdsl-pill inactive">F · Food</span>
           <span class="fdsl-pill active">D · Drink</span>
@@ -631,9 +659,9 @@
       </div>
       <div class="cycle-body">
         The fully expanded activity system materializes in <em>Travels in Intertextuality: The Box Set</em> — six vinyl albums whose individual packaging panels assemble into a literal box. This is not a metaphor: the artifact is designed so that the records, when removed for play, leave behind a physical <span class="container-word">Container</span> that is itself the product of their arrangement.<br><br>
-        This is Engeström's expanded object made tangible. The box set contains and makes visible the entire activity system that produced it: the practitioner-researcher's accumulated Soundtrap sessions (the tool), the intertextual song choices (the rules), the live performance history (the community), the F/D/S/L framework (the division of labour between experiential axes), and the vinyl record as the site where all of these systems converge.<br><br>
+        This is Engeström's expanded object made tangible. The box set contains and makes visible the entire activity system that produced it: the practitioner-researcher's accumulated Soundtrap sessions (the tool), the intertextual song choices (the rules), the live performance history (the community), the |F|D|S|L| framework (the division of labour between experiential axes), and the vinyl record as the site where all of these systems converge.<br><br>
         The box is not a <span class="container-word">Container</span> for the records. The records are the argument. The box is the conclusion.<br><br>
-        <strong>F/D/S/L activation:</strong>
+        <strong>|F|D|S|L| activation:</strong>
         <div class="fdsl">
           <span class="fdsl-pill inactive">F · Food</span>
           <span class="fdsl-pill active">D · Drink</span>
@@ -787,7 +815,7 @@
     <p class="body-text">Five chapters. One continuous research argument. Each step proven before the next began.</p>
     <div class="arc-chapter" onclick="toggleArc(this)">
       <div class="arc-chapter-head"><div><div class="arc-chapter-label">Chapter 1 · 2021–2022</div><div class="arc-chapter-title">The Covid Tapes</div></div><span class="arc-toggle">+</span></div>
-      <div class="arc-body">Remote Soundtrap collaboration with Ian Bruce (Ian McAvoy, San Jose CA). 132 tracks. Campbell River lockdown. The origin of the entire pipeline and the vinyl + craft spirits packaging concept.<br><br>Key recording: <strong style="color:var(--cream);font-weight:500;">In Your Eyes</strong> (Peter Gabriel) — designated single of The Mariner's Song Project. Also: Living in Another World (Talk Talk, July 2, 2022), No Time to Die (Billie Eilish, May 2022).</div>
+      <div class="arc-body">Remote Soundtrap collaboration with Ian Bruce (Ian McAvoy, San Jose CA). 132 tracks. Campbell River lockdown. The origin of the entire pipeline and the vinyl + craft spirits packaging concept.<br><br>Key recording: <strong>In Your Eyes</strong> (Peter Gabriel) — designated single of The Mariner's Song Project. Also: Living in Another World (Talk Talk, July 2, 2022), No Time to Die (Billie Eilish, May 2022).</div>
     </div>
     <div class="arc-chapter" onclick="toggleArc(this)">
       <div class="arc-chapter-head"><div><div class="arc-chapter-label">Chapter 2 · Good Friday 2022, Las Vegas</div><div class="arc-chapter-title">Angel Eyes — Pipeline Realized</div></div><span class="arc-toggle">+</span></div>
@@ -927,7 +955,7 @@
       <div class="arc-detail-eyebrow">Oct 2025–Mar 2026 · Culmination</div>
       <div class="arc-detail-title">The Seven Game Series — Live Performance as Playoff Format</div>
       <div class="arc-detail-body">Seven games structured around the baseball playoff format. Game 6 (St. Patrick's Day 2026, Fionn MacCool's Vancouver) produces The Van Morrison Set — Disc 1 of the Double Double. Game 7 (March 28, 2026, Cambie Village, MLB Opening Weekend) produces Ten Innings in the Spring — Disc 2. Pool 8 generates April Showers Vol. 1 and 2, Maytallica Flowers, and The Maytallica Seven — Discs 3–6.</div>
-      <div class="arc-loop-note">→ The SGS is the activity system at full expansion: live venue, audience, Soundtrap sessions, setlist as vinyl sequence, craft spirits bundle as packaging. Every axis of the F/D/S/L framework is now in play.</div>
+      <div class="arc-loop-note">→ The SGS is the activity system at full expansion: live venue, audience, Soundtrap sessions, setlist as vinyl sequence, craft spirits bundle as packaging. Every axis of the |F|D|S|L| framework is now in play.</div>
     </div>
     <div class="arc-detail" id="arc-april">
       <div class="arc-detail-eyebrow">April 2026 · Entry Point + Loop Closure</div>
@@ -946,6 +974,17 @@
   </div>
 
 </div>
+
+<footer class="subdomain-footer">
+  <nav class="footer-nav">
+    <a href="https://lab.crooney.ca">Lab</a>
+    <a href="https://phd.crooney.ca">PhD</a>
+    <a href="https://projects.crooney.ca">Projects</a>
+    <a href="https://vanisle.crooney.ca">VanIsle</a>
+    <a href="https://aries.crooney.ca">Aries</a>
+  </nav>
+  <span class="footer-domain">soundtrap.crooney.ca</span>
+</footer>
 
 <script>
   function showSection(id, btn) {
