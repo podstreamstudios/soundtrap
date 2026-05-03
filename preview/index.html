@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travels in Intertextuality — Soundtrap (preview)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --ink: #2d1247;
+      --surface: #3d2247;
+      --surface2: #4f0590;
+      --card-bg: #2a0d4d;
+      --card-deep: #1f0a3a;
+      --paper: #f5f5f5;
+      --paper-soft: #d5c2ff;
+      --paper-mid: rgba(245,245,245,0.7);
+      --accent: #eb2d55;
+      --accent-deep: #96004b;
+      --accent-soft: #d5c2ff;
+      --accent-pink: #FFB3C5;
+      --rule: rgba(213,194,255,0.15);
+      --rule-strong: rgba(213,194,255,0.4);
+      --serif: 'Playfair Display', Georgia, serif;
+      --mono: 'DM Mono', monospace;
+      --sans: 'DM Sans', system-ui, sans-serif;
+    }
+
+    html, body {
+      background: var(--ink);
+      color: var(--paper);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    .app {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 0 4rem;
+    }
+
+    /* ── PROPOSAL TOPBAR ── */
+    .proposal-topbar {
+      border-bottom: 1px solid var(--rule);
+      padding: 1.25rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    .proposal-topbar a {
+      color: var(--accent-soft);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      padding-bottom: 1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .proposal-topbar a:hover { color: var(--paper); border-bottom-color: var(--paper); }
+    .proposal-topbar .crumb { color: var(--paper-mid); }
+    .proposal-eyebrow {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      color: var(--accent-soft);
+      text-transform: uppercase;
+    }
+
+    /* ── MASTHEAD ── */
+    .masthead {
+      border-bottom: 1px solid var(--rule);
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+      position: relative;
+    }
+    .site-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      color: var(--accent-soft);
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+    .masthead h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 5vw, 3.5rem);
+      font-weight: 700;
+      color: var(--paper);
+      line-height: 1.15;
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.01em;
+    }
+    .masthead h1 em { font-style: italic; color: var(--accent); }
+    .masthead-sub {
+      font-family: var(--serif);
+      font-size: clamp(1.05rem, 2vw, 1.35rem);
+      font-style: italic;
+      font-weight: 400;
+      color: var(--paper-mid);
+      line-height: 1.5;
+      margin-top: 1.25rem;
+    }
+
+    /* ── SECTIONS (flat single-scroll) ── */
+    .section {
+      display: block;
+      padding: 4rem 2rem 2rem;
+    }
+    .section + .section { border-top: 1px solid var(--rule); }
+    .section.active { display: block; }
+
+    /* ── TYPOGRAPHY ── */
+    .section-eyebrow {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent-soft);
+      margin-bottom: 0.85rem;
+    }
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(1.75rem, 3.5vw, 2.4rem);
+      font-weight: 700;
+      color: var(--paper);
+      margin-bottom: 1.25rem;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+    }
+    .section-title em { font-style: italic; color: var(--accent); }
+    .body-text {
+      color: var(--paper);
+      font-size: 16px;
+      line-height: 1.75;
+      margin-bottom: 1.15rem;
+    }
+    .body-text-quiet {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--paper-mid);
+      font-style: italic;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+    .divider { border: none; border-top: 1px solid var(--rule); margin: 2rem 0; }
+
+    /* ── REAL QUOTE ── */
+    .real-quote {
+      border-left: 3px solid var(--accent);
+      padding: 1rem 1.5rem;
+      margin: 1.5rem 0 0.5rem;
+      background: var(--card-bg);
+    }
+    .real-quote-flag {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+    .real-quote p {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.2rem;
+      color: var(--paper);
+      line-height: 1.7;
+      margin-bottom: 0.6rem;
+    }
+    .real-quote cite {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      font-style: normal;
+      display: block;
+    }
+
+    /* ── MIRAGE BRIDGE ── */
+    .mirage-bridge {
+      padding: 0.85rem 1.25rem;
+      margin: 0.5rem 0;
+      background: var(--card-bg);
+      border: 1px solid var(--rule);
+    }
+    .mirage-bridge-title {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--accent-soft);
+      margin-bottom: 0.4rem;
+    }
+    .mirage-bridge p {
+      font-size: 13px;
+      color: var(--paper-mid);
+      line-height: 1.7;
+      font-family: var(--sans);
+      font-style: italic;
+    }
+
+    /* ── AI QUOTE ── */
+    .ai-quote {
+      border-left: 3px solid var(--accent-soft);
+      padding: 1rem 1.25rem;
+      margin: 0.5rem 0 1.5rem;
+      background: var(--card-bg);
+    }
+    .ai-quote-flag {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-soft);
+      margin-bottom: 0.5rem;
+    }
+    .ai-quote p {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--paper);
+      line-height: 1.6;
+      margin-bottom: 0.5rem;
+    }
+    .ai-quote .fake-cite {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: var(--paper-mid);
+      font-style: normal;
+      text-decoration: line-through;
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+    .ai-quote .ai-note {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--paper-mid);
+      line-height: 1.65;
+      font-style: italic;
+      border-top: 1px solid var(--rule);
+      padding-top: 0.65rem;
+    }
+    .ai-quote .ai-note strong {
+      font-style: normal;
+      color: var(--accent-soft);
+      font-weight: 500;
+    }
+
+    /* ── PULL QUOTE ── */
+    .pull-quote {
+      border-left: 3px solid var(--accent);
+      padding: 0.75rem 1.25rem;
+      margin: 1.5rem 0;
+      background: var(--card-bg);
+    }
+    .pull-quote p {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--paper);
+      line-height: 1.6;
+      margin-bottom: 0.3rem;
+    }
+    .pull-quote cite {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      font-style: normal;
+    }
+
+    /* ── SIDE TABS ── */
+    .side-tabs {
+      display: flex;
+      gap: 1px;
+      background: var(--rule-strong);
+      overflow: hidden;
+      margin-bottom: 1rem;
+      width: fit-content;
+    }
+    .side-tab {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.55rem 1.2rem;
+      cursor: pointer;
+      background: var(--card-bg);
+      color: var(--paper-mid);
+      border: none;
+      outline: none;
+      transition: background 0.15s, color 0.15s;
+    }
+    .side-tab.active { background: var(--accent); color: var(--paper); }
+    .side-tab:hover { color: var(--paper); }
+
+    /* ── TRACKS ── */
+    .track-table { width: 100%; }
+    .track-row {
+      display: grid;
+      grid-template-columns: 1.5rem 1fr auto;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.55rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .track-row:last-child { border-bottom: none; }
+    .track-num { font-family: var(--mono); font-size: 10px; color: var(--accent); text-align: right; }
+    .track-song { font-size: 14px; color: var(--paper); line-height: 1.3; }
+    .track-artist { font-size: 11px; color: var(--paper-mid); font-family: var(--mono); letter-spacing: 0.03em; margin-top: 2px; }
+    .track-orig { font-size: 10px; color: var(--paper-mid); font-family: var(--mono); letter-spacing: 0.03em; font-style: italic; opacity: 0.75; }
+    .track-link {
+      font-family: var(--mono);
+      font-size: 9px;
+      color: var(--accent-soft);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      border-bottom: 1px dotted var(--accent-soft);
+      white-space: nowrap;
+    }
+    .track-link:hover { color: var(--paper); border-bottom-color: var(--paper); }
+
+    /* ── ENGESTRÖM STAGES ── */
+    .cycle-stage { border: 1px solid var(--rule); margin-bottom: 1rem; overflow: hidden; background: var(--card-bg); }
+    .cycle-stage-head { display: grid; grid-template-columns: 2.5rem 1fr; cursor: pointer; transition: background 0.15s; }
+    .cycle-stage-head:hover { background: var(--surface); }
+    .cycle-stage.expanded .cycle-stage-head { background: var(--surface); }
+    .cycle-num {
+      background: var(--accent);
+      color: var(--paper);
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cycle-head-content { padding: 0.85rem 1rem; }
+    .cycle-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--accent-soft); margin-bottom: 0.2rem; text-transform: uppercase; }
+    .cycle-title { font-family: var(--serif); font-size: 1.15rem; color: var(--paper); font-weight: 500; }
+    .cycle-body {
+      display: none;
+      padding: 1rem;
+      border-top: 1px solid var(--rule);
+      font-size: 14px;
+      color: var(--paper);
+      line-height: 1.75;
+    }
+    .cycle-stage.expanded .cycle-body { display: block; }
+    .cycle-body strong { color: var(--accent-soft); font-weight: 500; }
+    .container-word { font-weight: 600; color: var(--accent); font-style: normal; }
+    .fdsl { display: inline-flex; gap: 4px; margin: 0.75rem 0; flex-wrap: wrap; }
+    .fdsl-pill {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border: 1px solid;
+    }
+    .fdsl-pill.active { background: rgba(235,45,85,0.2); color: var(--accent); border-color: var(--accent); }
+    .fdsl-pill.inactive { background: transparent; color: var(--paper-mid); border-color: var(--rule); }
+
+    /* ── DISC SELECTOR ── */
+    .disc-selector {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+    }
+    .disc-btn { background: var(--card-bg); padding: 0.7rem 0.3rem; cursor: pointer; text-align: center; transition: background 0.15s; border: none; outline: none; }
+    .disc-btn:hover { background: var(--surface); }
+    .disc-btn.active { background: var(--surface2); }
+    .disc-btn-num { font-family: var(--mono); font-size: 9px; letter-spacing: 0.15em; color: var(--accent-soft); display: block; margin-bottom: 2px; }
+    .disc-btn-label { font-family: var(--serif); font-size: 0.85rem; color: var(--paper); line-height: 1.2; display: block; font-weight: 400; font-style: italic; }
+    .disc-panel { display: none; }
+    .disc-panel.active { display: block; }
+    .disc-header { margin-bottom: 1.25rem; }
+    .disc-title-main { font-family: var(--serif); font-size: 1.35rem; color: var(--paper); margin-bottom: 0.2rem; font-weight: 500; }
+    .disc-title-main em { font-style: italic; color: var(--accent); }
+    .disc-subtitle { font-family: var(--mono); font-size: 10px; color: var(--paper-mid); letter-spacing: 0.1em; }
+
+    /* ── PROVENANCE ── */
+    .arc-chapter { padding: 1.25rem; background: var(--card-bg); border: 1px solid var(--rule); margin-bottom: 1rem; cursor: pointer; transition: border-color 0.2s, background 0.2s; }
+    .arc-chapter:hover { border-color: var(--accent-soft); }
+    .arc-chapter.expanded { border-color: var(--accent); background: var(--card-deep); }
+    .arc-chapter-head { display: flex; justify-content: space-between; align-items: center; }
+    .arc-chapter-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--accent-soft); margin-bottom: 0.2rem; text-transform: uppercase; }
+    .arc-chapter-title { font-family: var(--serif); font-size: 1.1rem; color: var(--paper); font-weight: 500; }
+    .arc-toggle { font-family: var(--mono); font-size: 14px; color: var(--accent); transition: transform 0.2s; flex-shrink: 0; margin-left: 0.5rem; }
+    .arc-chapter.expanded .arc-toggle { transform: rotate(45deg); }
+    .arc-body { display: none; margin-top: 0.85rem; padding-top: 0.85rem; border-top: 1px solid var(--rule); font-size: 14px; color: var(--paper); line-height: 1.7; }
+    .arc-chapter.expanded .arc-body { display: block; }
+    .arc-link { font-family: var(--mono); font-size: 10px; color: var(--accent-soft); text-decoration: none; border-bottom: 1px dotted var(--accent-soft); letter-spacing: 0.05em; }
+    .arc-link:hover { color: var(--paper); border-bottom-color: var(--paper); }
+
+    /* ── STATS ── */
+    .about-stat { display: flex; justify-content: space-between; align-items: baseline; padding: 0.7rem 0; border-bottom: 1px solid var(--rule); font-size: 14px; gap: 1rem; }
+    .about-stat:last-child { border-bottom: none; }
+    .about-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; color: var(--paper-mid); text-transform: uppercase; }
+    .about-value { color: var(--paper); }
+
+    /* ── CTA ── */
+    .cta-block { margin-top: 2rem; padding: 1.75rem; background: var(--surface2); }
+    .cta-block .cta-title { font-family: var(--serif); font-size: 1.35rem; color: var(--paper); margin-bottom: 0.6rem; font-weight: 500; }
+    .cta-block .cta-body { font-size: 14px; color: var(--paper-soft); line-height: 1.7; margin-bottom: 1.25rem; }
+    .cta-btn {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--paper);
+      background: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 0.7rem 1.3rem;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+      text-decoration: none;
+    }
+    .cta-btn:hover { background: var(--paper); color: var(--ink); border-color: var(--paper); }
+    .cta-btn.primary { background: var(--accent); color: var(--paper); border-color: var(--accent); }
+    .cta-btn.primary:hover { background: var(--paper); color: var(--ink); border-color: var(--paper); }
+
+    /* ── SEASON ── */
+    .season-row { display: flex; align-items: flex-start; gap: 1rem; padding: 0.85rem 0; border-bottom: 1px solid var(--rule); }
+    .season-row:last-child { border-bottom: none; }
+    .season-num { font-family: var(--mono); font-size: 22px; font-weight: 500; color: var(--accent); opacity: 0.4; min-width: 2.5rem; line-height: 1; padding-top: 0.15rem; }
+    .season-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em; color: var(--accent-soft); margin-bottom: 0.3rem; text-transform: uppercase; }
+    .season-episodes { font-size: 13px; color: var(--paper); line-height: 1.55; }
+
+    .badge { display: inline-block; font-family: var(--mono); font-size: 8px; letter-spacing: 0.1em; text-transform: uppercase; background: rgba(235,45,85,0.2); color: var(--accent); padding: 2px 6px; margin-left: 0.4rem; vertical-align: middle; }
+    .note { font-family: var(--mono); font-size: 10px; color: var(--paper-mid); letter-spacing: 0.05em; margin-top: 0.5rem; font-style: italic; }
+
+    /* ── BOTTOM ARC NAVBAR ── */
+    .arc-nav { border-top: 1px solid var(--rule); background: var(--card-deep); padding-bottom: 1rem; }
+    .arc-nav-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--paper-mid); padding: 1rem 1.5rem 0.6rem; display: block; }
+    .arc-nav-scroll { display: flex; overflow-x: auto; scrollbar-width: none; padding: 0 1.5rem 1rem; -webkit-overflow-scrolling: touch; }
+    .arc-nav-scroll::-webkit-scrollbar { display: none; }
+    .arc-node {
+      flex-shrink: 0;
+      cursor: pointer;
+      padding: 0.7rem 1rem;
+      border: 1px solid var(--rule);
+      margin-right: 0.6rem;
+      transition: border-color 0.2s, background 0.2s;
+      background: var(--card-bg);
+      min-width: 150px;
+    }
+    .arc-node:hover { border-color: var(--accent-soft); }
+    .arc-node.active { border-color: var(--accent); background: var(--surface); }
+    .arc-node-year { font-family: var(--mono); font-size: 9px; letter-spacing: 0.15em; color: var(--accent-soft); display: block; margin-bottom: 3px; }
+    .arc-node-title { font-family: var(--serif); font-size: 0.95rem; color: var(--paper); display: block; line-height: 1.3; font-weight: 500; }
+    .arc-node-count { font-family: var(--mono); font-size: 9px; color: var(--paper-mid); display: block; margin-top: 4px; }
+    .arc-connector { flex-shrink: 0; display: flex; align-items: center; padding: 0 0.1rem; color: var(--rule-strong); font-family: var(--mono); font-size: 14px; align-self: center; margin-bottom: 0.5rem; }
+    .arc-detail { border-top: 1px solid var(--rule); background: var(--card-bg); padding: 1.25rem 1.5rem; display: none; }
+    .arc-detail.active { display: block; }
+    .arc-detail-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--accent-soft); margin-bottom: 0.5rem; text-transform: uppercase; }
+    .arc-detail-title { font-family: var(--serif); font-size: 1.2rem; color: var(--paper); margin-bottom: 0.6rem; font-weight: 500; }
+    .arc-detail-body { font-size: 14px; color: var(--paper); line-height: 1.7; }
+    .arc-loop-note { font-family: var(--mono); font-size: 10px; color: var(--accent-soft); letter-spacing: 0.08em; margin-top: 0.85rem; padding-top: 0.85rem; border-top: 1px solid var(--rule); line-height: 1.7; }
+
+    /* ── SUBDOMAIN FOOTER ── */
+    footer.subdomain-footer {
+      border-top: 1px solid var(--rule);
+      padding: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    footer.subdomain-footer .footer-nav { display: flex; gap: 24px; flex-wrap: wrap; }
+    footer.subdomain-footer .footer-nav a {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--paper-mid);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      padding-bottom: 2px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    footer.subdomain-footer .footer-nav a:hover { color: var(--paper); border-bottom-color: var(--paper); }
+    footer.subdomain-footer .footer-domain {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      color: var(--paper-mid);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 720px) {
+      .masthead { padding: 3.5rem 1.5rem 3rem; }
+      .section { padding: 3rem 1.25rem 1.5rem; }
+      .disc-selector { grid-template-columns: repeat(3, 1fr); }
+      footer.subdomain-footer { flex-direction: column; gap: 1rem; text-align: center; padding: 1.5rem 1rem; }
+      footer.subdomain-footer .footer-nav { justify-content: center; }
+      .proposal-topbar { padding: 1rem 1.25rem; flex-wrap: wrap; gap: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="proposal-topbar">
+  <span><a href="/">&larr; soundtrap.crooney.ca</a> <span class="crumb">/ preview (purple)</span></span>
+  <span class="proposal-eyebrow">v2 · soundtrap palette</span>
+</div>
+
+<div class="app">
+
+  <!-- MASTHEAD -->
+  <div class="masthead">
+    <div class="site-label">CROONEY INTERACTIVE PRESENTS...</div>
+    <h1>Travels in Intertextuality: The Vinyl Album</h1>
+    <div class="masthead-sub">Doctor Obscurity, Professor Playlist, and The Soundtrap Years (2021–2026)</div>
+  </div>
+
+<!-- ══ ENTRY POINT ══ -->
+  <div class="section active" id="section-entry">
+    <div class="section-eyebrow">Primary Pitch Artifact</div>
+    <div class="section-title"><em>April Showers</em> Vol. 1</div>
+    <p class="body-text">Twelve songs. Two sides. One disc. The definitive entry point into the Travels in Intertextuality ecosystem — and the primary collaboration invitation.</p>
+
+    <!-- ELIOT — real quote -->
+    <div class="real-quote">
+      <div class="real-quote-flag">✓ Verified · T.S. Eliot · The Waste Land (1922)</div>
+      <p>"April is the cruelest month, breeding<br>
+      lilacs out of the dead land, mixing<br>
+      memory and desire, stirring<br>
+      dull roots with spring rain..."</p>
+      <cite>— T.S. Eliot, The Waste Land, Part I: The Burial of the Dead (1922)</cite>
+    </div>
+
+    <!-- MIRAGE BRIDGE -->
+    <div class="mirage-bridge">
+      <div class="mirage-bridge-title">The Mirage of Authority</div>
+      <p>What follows is a quote that was not written by the person it is attributed to, about a technology that did not exist when the attribution claims it was said, in a film that has nothing to do with either. It is kept here — rather than deleted — because it is a near-perfect specimen of what AI language models produce when they confuse the <em>form</em> of authority with its substance. Eliot's April is a month of memory, desire, and things that seem alive but may not be. The AI's Scorsese is an April thought.</p>
+    </div>
+
+    <!-- SCORSESE — the mirage -->
+    <div class="ai-quote">
+      <div class="ai-quote-flag">⚠ AI Hallucination — The Mirage of Authority</div>
+      <p>"The Soundtrap sessions are the storyboard. The vocal takes are what the room produces when the plan meets the material conditions."</p>
+      <span class="fake-cite">— Martin Scorsese, The Last Waltz (1976)</span>
+      <div class="ai-note">This quote was generated by Claude (Anthropic) during a working session in April 2026 and attributed — with complete confidence — to Martin Scorsese's 1976 concert film. <strong>Soundtrap was founded in 2012.</strong> Scorsese said nothing of the kind. The Last Waltz is about The Band, not about cloud-based DAWs. And yet: the quote <em>sounds</em> right. It has the rhythm of authority. It fits the context. It is, in Eliot's terms, a memory without a referent — desire without an object — a root that stirs but was never planted. The AI does not lie. It hallucinates. The difference matters: lying requires knowing the truth. This is the mirage of authority, and it is kept here as a working exhibit in a research project that uses AI tools critically, carefully, and — where necessary — with a degree of productive embarrassment.</div>
+    </div>
+
+    <p class="body-text-quiet" style="margin-top:-0.5rem;">The tracklist, Engeström framework, and production documentation that follow are factual, sourced, and verified. The Soundtrap session links are real. The songs are real. The research is real. The Scorsese quote is not.</p>
+
+    <hr class="divider">
+    <div class="section-eyebrow">Tracklist — April 19, 2026</div>
+    <div class="side-tabs" style="margin-bottom:1rem;">
+      <button class="side-tab active" onclick="showSide('entry','A',this)">Side A</button>
+      <button class="side-tab" onclick="showSide('entry','B',this)">Side B</button>
+    </div>
+    <div id="entry-side-A" class="track-table">
+      <div class="track-row"><span class="track-num">A1</span><div class="track-info"><div class="track-song">The Last Farewell</div><div class="track-artist">Elvis Presley</div><div class="track-orig">orig. Roger Whittaker</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=10cfc35b7ea143119653b5ebcec349e4" target="_blank">Soundtrap →</a></div>
+      <div class="track-row"><span class="track-num">A2</span><div class="track-info"><div class="track-song">Memories</div><div class="track-artist">Elvis Presley</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=ba00252467b7ad8f385063fd7a1efb5a" target="_blank">Soundtrap →</a></div>
+      <div class="track-row"><span class="track-num">A3</span><div class="track-info"><div class="track-song">Memories Are Made of This</div><div class="track-artist">Dean Martin</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=66ee964555b61267b5f8df9740810d51" target="_blank">Soundtrap →</a></div>
+      <div class="track-row"><span class="track-num">A4</span><div class="track-info"><div class="track-song">Sway</div><div class="track-artist">Dean Martin</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=a593a994d2460c071a63f0581101deae" target="_blank">Soundtrap →</a></div>
+      <div class="track-row"><span class="track-num">A5</span><div class="track-info"><div class="track-song">You Make Me Feel So Young</div><div class="track-artist">Frank Sinatra</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=9439b258de749787c9bff464772d9015" target="_blank">Soundtrap →</a></div>
+      <div class="track-row"><span class="track-num">A6</span><div class="track-info"><div class="track-song">He Ain't Heavy He's My Brother</div><div class="track-artist">Neil Diamond</div><div class="track-orig">orig. The Hollies</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=eda44022f0a48803f94a14067a3bdae7" target="_blank">Soundtrap →</a></div>
+    </div>
+    <div id="entry-side-B" class="track-table" style="display:none;">
+      <div class="track-row"><span class="track-num">B1</span><div class="track-info"><div class="track-song">Song Sung Blue</div><div class="track-artist">Neil Diamond</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=c987a0193e9734ecc6b1e32bc955580d" target="_blank">Soundtrap →</a></div>
+      <div class="track-row"><span class="track-num">B2</span><div class="track-info"><div class="track-song">Can't Take My Eyes Off You</div><div class="track-artist">Andy Williams</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=dc797d73fa2d365850260fba6275e5d8" target="_blank">Soundtrap →</a></div>
+      <div class="track-row"><span class="track-num">B3</span><div class="track-info"><div class="track-song">House of Bamboo</div><div class="track-artist">Andy Williams</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=afb3aeb83790c1b4da083096904782b7" target="_blank">Soundtrap →</a></div>
+      <div class="track-row"><span class="track-num">B4</span><div class="track-info"><div class="track-song">You're Such a Good Looking Woman</div><div class="track-artist">Joe Dolan</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=0590eb470ccbe4d970233ff7185189ff" target="_blank">Soundtrap →</a></div>
+      <div class="track-row"><span class="track-num">B5</span><div class="track-info"><div class="track-song">Days Like This</div><div class="track-artist">Van Morrison</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=7ff919e1e30a2754f6740ffa5b2aaf2a" target="_blank">Soundtrap →</a></div>
+      <div class="track-row"><span class="track-num">B6</span><div class="track-info"><div class="track-song">A Rainy Night in Soho</div><div class="track-artist">The Pogues</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=2893fd2b3d45ef196ffe315d0d5a7457" target="_blank">Soundtrap →</a></div>
+    </div>
+
+    <hr class="divider">
+    <div class="section-eyebrow">Expansive Learning · Engeström (1987, 2001)</div>
+    <p class="body-text">The scalability of this project is not incidental — it is structurally accounted for through Engeström's expansive learning cycle, in which each stage of an activity system produces contradictions that drive the emergence of a qualitatively new object. Soundtrap functions throughout as the practical experimental platform; the Food/Drink/Sound/Light (|F|D|S|L|) framework — developed in parallel as the theoretical companion — provides the experience-design logic that governs what each expansion makes possible.</p>
+
+    <div class="cycle-stage" onclick="toggleCycle(this)">
+      <div class="cycle-stage-head">
+        <div class="cycle-num">I</div>
+        <div class="cycle-head-content">
+          <div class="cycle-label">Stage One · The Initial Object</div>
+          <div class="cycle-title">The Lone Vinyl Record — Instrumental Version</div>
+        </div>
+      </div>
+      <div class="cycle-body">
+        The activity system in its simplest form: a single performer, a single tool (Soundtrap), a single output. The object is a vinyl record of instrumental versions — fixed, analog, fully produced. The record is not yet a performance; it is a score. The subject acts on the object through the mediating tool of Soundtrap's cloud production environment, producing a distributable artifact that is simultaneously a research output and a commercial prototype.<br><br>
+        <strong>|F|D|S|L| activation:</strong>
+        <div class="fdsl">
+          <span class="fdsl-pill inactive">F · Food</span>
+          <span class="fdsl-pill inactive">D · Drink</span>
+          <span class="fdsl-pill active">S · Sound</span>
+          <span class="fdsl-pill inactive">L · Light</span>
+        </div>
+        The Sound axis is activated and fully controlled. The record is the instrument; Soundtrap is the workbench.
+      </div>
+    </div>
+
+    <div class="cycle-stage" onclick="toggleCycle(this)">
+      <div class="cycle-stage-head">
+        <div class="cycle-num">II</div>
+        <div class="cycle-head-content">
+          <div class="cycle-label">Stage Two · First Contradiction → Expansion</div>
+          <div class="cycle-title">Live Public Performance — Analog Records and the Lounge Experience</div>
+        </div>
+      </div>
+      <div class="cycle-body">
+        The first contradiction emerges from the gap between the fixity of the record and the social, spatial, and temporal conditions of performance. A vinyl record played in a venue is not the same object as a vinyl record played in a studio: the room, the audience, and the co-present visual environment transform it. The expansive resolution is a coordinated digital visual layer — background visuals timed to the analog record — producing a new activity system in which the record functions as the score for a live, multi-sensory lounge event.<br><br>
+        This is not merely a larger version of Stage One. The object has changed: it is now an <em>event</em>, not an artifact. The community (venue, audience) and rules (performance context, timing, projection) enter the activity system for the first time.<br><br>
+        <strong>|F|D|S|L| activation:</strong>
+        <div class="fdsl">
+          <span class="fdsl-pill inactive">F · Food</span>
+          <span class="fdsl-pill inactive">D · Drink</span>
+          <span class="fdsl-pill active">S · Sound</span>
+          <span class="fdsl-pill active">L · Light</span>
+        </div>
+        The Light axis is activated through the digital visual layer. Sound and Light now operate in designed relation — the two digitizable experiential affordances of the |F|D|S|L| framework are present and coordinated.
+      </div>
+    </div>
+
+    <div class="cycle-stage" onclick="toggleCycle(this)">
+      <div class="cycle-stage-head">
+        <div class="cycle-num">III</div>
+        <div class="cycle-head-content">
+          <div class="cycle-label">Stage Three · Second Contradiction → Expansion</div>
+          <div class="cycle-title">The Drink + Sound Bundle — Vinyl + Vancouver Island Craft Spirits</div>
+        </div>
+      </div>
+      <div class="cycle-body">
+        The second contradiction is revealed by the |F|D|S|L| framework itself: the live performance event activates Sound and Light, but the framework was theorized to encompass the full hospitality experience — including the culinary and mixological dimensions that define analog, embodied presence in a venue. A record alone cannot instantiate the Drink axis; the packaging must.<br><br>
+        The expansive resolution is the two-record bundle paired with two bottles from a Vancouver Island craft distillery — a <strong>"Drink + Sound"</strong> bundle that physically embeds the record within the hospitality experience it theorizes. The object has expanded again: it is now a <em>curated sensory bundle</em> that enacts the relationship between mixology and music that the |F|D|S|L| framework describes.<br><br>
+        The choice of Drink and Sound as the activated axes is a principled research decision — these are the two axes over which the practitioner-researcher has the deepest expertise and strongest existing connections. The system is explicitly designed for expansion into Food and Light prototyping spaces, with peer-reviewed publications forthcoming via the TIM Review at Carleton University.<br><br>
+        <strong>|F|D|S|L| activation:</strong>
+        <div class="fdsl">
+          <span class="fdsl-pill inactive">F · Food</span>
+          <span class="fdsl-pill active">D · Drink</span>
+          <span class="fdsl-pill active">S · Sound</span>
+          <span class="fdsl-pill inactive">L · Light</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cycle-stage" onclick="toggleCycle(this)">
+      <div class="cycle-stage-head">
+        <div class="cycle-num">IV</div>
+        <div class="cycle-head-content">
+          <div class="cycle-label">Stage Four · The Fully Expanded Object</div>
+          <div class="cycle-title">Travels in Intertextuality: The Box Set — Six Albums, One <span class="container-word">Container</span></div>
+        </div>
+      </div>
+      <div class="cycle-body">
+        The fully expanded activity system materializes in <em>Travels in Intertextuality: The Box Set</em> — six vinyl albums whose individual packaging panels assemble into a literal box. This is not a metaphor: the artifact is designed so that the records, when removed for play, leave behind a physical <span class="container-word">Container</span> that is itself the product of their arrangement.<br><br>
+        This is Engeström's expanded object made tangible. The box set contains and makes visible the entire activity system that produced it: the practitioner-researcher's accumulated Soundtrap sessions (the tool), the intertextual song choices (the rules), the live performance history (the community), the |F|D|S|L| framework (the division of labour between experiential axes), and the vinyl record as the site where all of these systems converge.<br><br>
+        The box is not a <span class="container-word">Container</span> for the records. The records are the argument. The box is the conclusion.<br><br>
+        <strong>|F|D|S|L| activation:</strong>
+        <div class="fdsl">
+          <span class="fdsl-pill inactive">F · Food</span>
+          <span class="fdsl-pill active">D · Drink</span>
+          <span class="fdsl-pill active">S · Sound</span>
+          <span class="fdsl-pill active">L · Light</span>
+        </div>
+        The full six-album arc reintroduces the Light axis through the box set's visual and spatial design. Food remains the horizon of the next research expansion.
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ BOX SET 2026 ══ -->
+  <div class="section" id="section-boxset">
+    <div class="section-eyebrow">2026 Box Set · 59 Sessions</div>
+    <div class="section-title">Travels in <em>Intertextuality</em>: Double Double + April Showers</div>
+    <p class="body-text" style="font-size:13px;">Six vinyl albums. Six sides. 59 confirmed Soundtrap sessions, all clean.</p>
+    <div class="disc-selector">
+      <button class="disc-btn active" onclick="showDisc(1,this)"><span class="disc-btn-num">Disc 1</span><span class="disc-btn-label">Van Morrison</span></button>
+      <button class="disc-btn" onclick="showDisc(2,this)"><span class="disc-btn-num">Disc 2</span><span class="disc-btn-label">Ten Innings</span></button>
+      <button class="disc-btn" onclick="showDisc(3,this)"><span class="disc-btn-num">Disc 3</span><span class="disc-btn-label">Apr Showers 1</span></button>
+      <button class="disc-btn" onclick="showDisc(4,this)"><span class="disc-btn-num">Disc 4</span><span class="disc-btn-label">Apr Showers 2</span></button>
+      <button class="disc-btn" onclick="showDisc(5,this)"><span class="disc-btn-num">Disc 5</span><span class="disc-btn-label">Maytallica</span></button>
+      <button class="disc-btn" onclick="showDisc(6,this)"><span class="disc-btn-num">Disc 6</span><span class="disc-btn-label">Maytallica 7</span></button>
+    </div>
+
+    <!-- DISC 1 -->
+    <div class="disc-panel active" id="disc-1">
+      <div class="disc-header"><div class="disc-title-main"><em>The Van Morrison Set</em></div><div class="disc-subtitle">12 tracks · 44:55 · St. Patrick's Day 2026, Fionn MacCool's Vancouver — Game 6</div></div>
+      <div class="side-tabs"><button class="side-tab active" onclick="showSide('d1','A',this)">Side A</button><button class="side-tab" onclick="showSide('d1','B',this)">Side B</button></div>
+      <div id="d1-side-A" class="track-table">
+        <div class="track-row"><span class="track-num">A1</span><div class="track-info"><div class="track-song">Moondance</div><div class="track-artist">Van Morrison</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=b7e65d8a1f8e1b88c1a6ad19969cd246" target="_blank">Soundtrap →</a></div>
+        <div class="track-row"><span class="track-num">A2</span><div class="track-info"><div class="track-song">Real Real Gone</div><div class="track-artist">Van Morrison</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=fc14a9dda22dc9d24a1152e87fc9fc18" target="_blank">Soundtrap →</a></div>
+        <div class="track-row"><span class="track-num">A3</span><div class="track-info"><div class="track-song">Wild Night</div><div class="track-artist">Van Morrison</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=beef2265b8020fcebe54c5904717f618" target="_blank">Soundtrap →</a></div>
+        <div class="track-row"><span class="track-num">A4</span><div class="track-info"><div class="track-song">Tupelo Honey <span class="badge">3:59 edit pending</span></div><div class="track-artist">Van Morrison</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=bb04c640afab777a1d3b937ac2ae6c3f" target="_blank">Soundtrap →</a></div>
+        <div class="track-row"><span class="track-num">A5</span><div class="track-info"><div class="track-song">Gloria</div><div class="track-artist">Them feat. Van Morrison</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=8d678754d69083179106c59a71913ba8" target="_blank">Soundtrap →</a></div>
+        <div class="track-row"><span class="track-num">A6</span><div class="track-info"><div class="track-song">Brown Eyed Girl</div><div class="track-artist">Van Morrison</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=740da891676e5976b3a1671e07f3e076" target="_blank">Soundtrap →</a></div>
+      </div>
+      <div id="d1-side-B" class="track-table" style="display:none;">
+        <div class="track-row"><span class="track-num">B1</span><div class="track-info"><div class="track-song">Into the Mystic</div><div class="track-artist">Van Morrison</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=299fb3bb90056304af078d0e1cb79aa0" target="_blank">Soundtrap →</a></div>
+        <div class="track-row"><span class="track-num">B2</span><div class="track-info"><div class="track-song">It Stoned Me</div><div class="track-artist">Van Morrison</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=079d22f0dd348997c19411fe9e8a12df" target="_blank">Soundtrap →</a></div>
+        <div class="track-row"><span class="track-num">B3</span><div class="track-info"><div class="track-song">Days Like This</div><div class="track-artist">Van Morrison</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=2f15f163c77fff8a0412153a741e753c" target="_blank">Soundtrap →</a></div>
+        <div class="track-row"><span class="track-num">B4</span><div class="track-info"><div class="track-song">Have I Told You</div><div class="track-artist">Van Morrison</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=970918b6c501fdc97c48a6bce137f839" target="_blank">Soundtrap →</a></div>
+        <div class="track-row"><span class="track-num">B5</span><div class="track-info"><div class="track-song">Baby Please Don't Go</div><div class="track-artist">Them feat. Van Morrison</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=65313f27b1bef5c0f033d6e3634bcb85" target="_blank">Soundtrap →</a></div>
+        <div class="track-row"><span class="track-num">B6</span><div class="track-info"><div class="track-song">Domino</div><div class="track-artist">Van Morrison</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=e6cdf9192e6c920b61e9d6937355e66a" target="_blank">Soundtrap →</a></div>
+      </div>
+    </div>
+
+    <!-- DISC 2 -->
+    <div class="disc-panel" id="disc-2">
+      <div class="disc-header"><div class="disc-title-main"><em>Ten Innings in the Spring</em></div><div class="disc-subtitle">10 tracks · 40:37 · March 28, 2026 — MLB Opening Weekend, Game 7</div></div>
+      <div class="note" style="margin-bottom:0.75rem;">Runtime 40:37 — Soundtrap edit shortens Pagan Baby for live performance</div>
+      <div class="side-tabs"><button class="side-tab active" onclick="showSide('d2','A',this)">Side A</button><button class="side-tab" onclick="showSide('d2','B',this)">Side B</button></div>
+      <div id="d2-side-A" class="track-table">
+        <div class="track-row"><span class="track-num">A1</span><div class="track-info"><div class="track-song">Someday Never Comes</div><div class="track-artist">Creedence Clearwater Revival</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=c025020939480dd01025b44181a301eb" target="_blank">Soundtrap →</a></div>
+        <div class="track-row"><span class="track-num">A2</span><div class="track-info"><div class="track-song">A Life of Illusion</div><div class="track-artist">Joe Walsh</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=2717fa1a08da01a67ace3dd9f8120f58" target="_blank">Soundtrap →</a></div>
+        <div class="track-row"><span class="track-num">A3</span><div class="track-info"><div class="track-song">Crazy Love</div><div class="track-artist">Van Morrison</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=b6d7314a375e15964dd5cfdd1d323aee" target="_blank">Soundtrap →</a></div>
+        <div class="track-row"><span class="track-num">A4</span><div class="track-info"><div class="track-song">50 Ways to Leave Your Lover</div><div class="track-artist">Paul Simon</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=82ad18047faaa276d1ff5a85d62d162a" target="_blank">Soundtrap →</a></div>
+        <div class="track-row"><span class="track-num">A5</span><div class="track-info"><div class="track-song">Take Me to the River</div><div class="track-artist">Talking Heads</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=d4d4c1aed5b5b3a72ca0c1ea03509240" target="_blank">Soundtrap →</a></div>
+      </div>
+      <div id="d2-side-B" class="track-table" style="display:none;">
+        <div class="track-row"><span class="track-num">B1</span><div class="track-info"><div class="track-song">Thunderstruck</div><div class="track-artist">AC/DC</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=b3555dd87a79955c97f102d8373dbcd7" target="_blank">Soundtrap →</a></div>
+        <div class="track-row"><span class="track-num">B2</span><div class="track-info"><div class="track-song">Sin City</div><div class="track-artist">AC/DC</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=5ee8f2227519ecd995b5681a28823996" target="_blank">Soundtrap →</a></div>
+        <div class="track-row"><span class="track-num">B3</span><div class="track-info"><div class="track-song">Pagan Baby <span class="badge">edit: runtime</span></div><div class="track-artist">Creedence Clearwater Revival</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=fa65f5e828f44878f7d27b75e07d0460" target="_blank">Soundtrap →</a></div>
+        <div class="track-row"><span class="track-num">B4</span><div class="track-info"><div class="track-song">Can't You See</div><div class="track-artist">Marshall Tucker Band</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=889ed7a8fc3ad6a717c1267de4e30592" target="_blank">Soundtrap →</a></div>
+        <div class="track-row"><span class="track-num">B5</span><div class="track-info"><div class="track-song">Against the Wind</div><div class="track-artist">Bob Seger</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=9ef6de70d6c13740bd8df6054980c0ce" target="_blank">Soundtrap →</a></div>
+      </div>
+    </div>
+
+    <!-- DISC 3 -->
+    <div class="disc-panel" id="disc-3">
+      <div class="disc-header"><div class="disc-title-main"><em>April Showers Vol. 1</em> <span class="badge">Primary Pitch</span></div><div class="disc-subtitle">12 tracks · April 19, 2026 · All sessions confirmed clean</div></div>
+      <div class="side-tabs"><button class="side-tab active" onclick="showSide('d3','A',this)">Side A</button><button class="side-tab" onclick="showSide('d3','B',this)">Side B</button></div>
+      <div id="d3-side-A" class="track-table">
+        <div class="track-row"><span class="track-num">A1</span><div class="track-info"><div class="track-song">The Last Farewell</div><div class="track-artist">Elvis Presley</div><div class="track-orig">orig. Roger Whittaker</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=10cfc35b7ea143119653b5ebcec349e4" target="_blank">Soundtrap →</a></div>
+        <div class="track-row"><span class="track-num">A2</span><div class="track-info"><div class="track-song">Memories</div><div class="track-artist">Elvis Presley</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=ba00252467b7ad8f385063fd7a1efb5a" target="_blank">Soundtrap →</a></div>
+        <div class="track-row"><span class="track-num">A3</span><div class="track-info"><div class="track-song">Memories Are Made of This</div><div class="track-artist">Dean Martin</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=66ee964555b61267b5f8df9740810d51" target="_blank">Soundtrap →</a></div>
+        <div class="track-row"><span class="track-num">A4</span><div class="track-info"><div class="track-song">Sway</div><div class="track-artist">Dean Martin</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=a593a994d2460c071a63f0581101deae" target="_blank">Soundtrap →</a></div>
+        <div class="track-row"><span class="track-num">A5</span><div class="track-info"><div class="track-song">You Make Me Feel So Young</div><div class="track-artist">Frank Sinatra</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=9439b258de749787c9bff464772d9015" target="_blank">Soundtrap →</a></div>
+        <div class="track-row"><span class="track-num">A6</span><div class="track-info"><div class="track-song">He Ain't Heavy He's My Brother</div><div class="track-artist">Neil Diamond</div><div class="track-orig">orig. The Hollies</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=eda44022f0a48803f94a14067a3bdae7" target="_blank">Soundtrap →</a></div>
+      </div>
+      <div id="d3-side-B" class="track-table" style="display:none;">
+        <div class="track-row"><span class="track-num">B1</span><div class="track-info"><div class="track-song">Song Sung Blue</div><div class="track-artist">Neil Diamond</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=c987a0193e9734ecc6b1e32bc955580d" target="_blank">Soundtrap →</a></div>
+        <div class="track-row"><span class="track-num">B2</span><div class="track-info"><div class="track-song">Can't Take My Eyes Off You</div><div class="track-artist">Andy Williams</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=dc797d73fa2d365850260fba6275e5d8" target="_blank">Soundtrap →</a></div>
+        <div class="track-row"><span class="track-num">B3</span><div class="track-info"><div class="track-song">House of Bamboo</div><div class="track-artist">Andy Williams</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=afb3aeb83790c1b4da083096904782b7" target="_blank">Soundtrap →</a></div>
+        <div class="track-row"><span class="track-num">B4</span><div class="track-info"><div class="track-song">You're Such a Good Looking Woman</div><div class="track-artist">Joe Dolan</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=0590eb470ccbe4d970233ff7185189ff" target="_blank">Soundtrap →</a></div>
+        <div class="track-row"><span class="track-num">B5</span><div class="track-info"><div class="track-song">Days Like This</div><div class="track-artist">Van Morrison</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=7ff919e1e30a2754f6740ffa5b2aaf2a" target="_blank">Soundtrap →</a></div>
+        <div class="track-row"><span class="track-num">B6</span><div class="track-info"><div class="track-song">A Rainy Night in Soho</div><div class="track-artist">The Pogues</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=2893fd2b3d45ef196ffe315d0d5a7457" target="_blank">Soundtrap →</a></div>
+      </div>
+    </div>
+
+    <!-- DISC 4 -->
+    <div class="disc-panel" id="disc-4">
+      <div class="disc-header"><div class="disc-title-main"><em>April Showers Vol. 2</em></div><div class="disc-subtitle">10 tracks · Pool 8</div></div>
+      <div class="side-tabs"><button class="side-tab active" onclick="showSide('d4','A',this)">Side A</button><button class="side-tab" onclick="showSide('d4','B',this)">Side B</button></div>
+      <div id="d4-side-A" class="track-table">
+        <div class="track-row"><span class="track-num">A1</span><div class="track-info"><div class="track-song">Back on the Chain Gang</div><div class="track-artist">Morrissey</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=45cd18fd1dc378167fe0ad449238b171" target="_blank">Soundtrap →</a></div>
+        <div class="track-row"><span class="track-num">A2</span><div class="track-info"><div class="track-song">The Chain</div><div class="track-artist">Fleetwood Mac</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=aec4eb3595fcd41d6093b8b686f8a946" target="_blank">Soundtrap →</a></div>
+        <div class="track-row"><span class="track-num">A3</span><div class="track-info"><div class="track-song">My City Was Gone</div><div class="track-artist">The Pretenders</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=821b4f525381660db39325237432cbd8" target="_blank">Soundtrap →</a></div>
+        <div class="track-row"><span class="track-num">A4</span><div class="track-info"><div class="track-song">People Are Strange</div><div class="track-artist">Echo &amp; The Bunnymen</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=2c9910a4235b386d55b33fe51cf47d18" target="_blank">Soundtrap →</a></div>
+        <div class="track-row"><span class="track-num">A5</span><div class="track-info"><div class="track-song">Right Down the Line</div><div class="track-artist">Gerry Rafferty</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=fe6f8000278dadfb1011b89b7f9ce2bc" target="_blank">Soundtrap →</a></div>
+      </div>
+      <div id="d4-side-B" class="track-table" style="display:none;">
+        <div class="track-row"><span class="track-num">B1</span><div class="track-info"><div class="track-song">Middle of the Road</div><div class="track-artist">The Pretenders</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=96b353242e213e82fbe7afdf0010a22a" target="_blank">Soundtrap →</a></div>
+        <div class="track-row"><span class="track-num">B2</span><div class="track-info"><div class="track-song">Suedehead</div><div class="track-artist">Morrissey</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=9c3926af30396bfc583c645dae34f5c9" target="_blank">Soundtrap →</a></div>
+        <div class="track-row"><span class="track-num">B3</span><div class="track-info"><div class="track-song">Voices Carry</div><div class="track-artist">Til Tuesday</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=cf617f16ab7e3d594cee8864cf50442b" target="_blank">Soundtrap →</a></div>
+        <div class="track-row"><span class="track-num">B4</span><div class="track-info"><div class="track-song">The Pretender</div><div class="track-artist">Foo Fighters</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=8a4f4cb85482f50964b1f08b7e0318cb" target="_blank">Soundtrap →</a></div>
+        <div class="track-row"><span class="track-num">B5</span><div class="track-info"><div class="track-song">Sweet Lover Hangover</div><div class="track-artist">Love and Rockets</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=fe1c5ca853b1343c36be9148cd775938" target="_blank">Soundtrap →</a></div>
+      </div>
+    </div>
+
+    <!-- DISC 5 -->
+    <div class="disc-panel" id="disc-5">
+      <div class="disc-header"><div class="disc-title-main"><em>Maytallica Flowers</em></div><div class="disc-subtitle">7 tracks · 36:59 · Pool 8</div></div>
+      <div class="side-tabs"><button class="side-tab active" onclick="showSide('d5','A',this)">Side A</button><button class="side-tab" onclick="showSide('d5','B',this)">Side B</button></div>
+      <div id="d5-side-A" class="track-table">
+        <div class="track-row"><span class="track-num">A1</span><div class="track-info"><div class="track-song">Going to California</div><div class="track-artist">Led Zeppelin</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=2d2d114262954bd24206fc82aaaf2f0e" target="_blank">Soundtrap →</a></div>
+        <div class="track-row"><span class="track-num">A2</span><div class="track-info"><div class="track-song">Always</div><div class="track-artist">The Mayfield Four</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=1c23d00dcdc378629ecfebb000abfc79" target="_blank">Soundtrap →</a></div>
+        <div class="track-row"><span class="track-num">A3</span><div class="track-info"><div class="track-song">Automatic Flowers</div><div class="track-artist">Our Lady Peace</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=d8111a1657d8a04cdd2700ed810938fa" target="_blank">Soundtrap →</a></div>
+        <div class="track-row"><span class="track-num">A4</span><div class="track-info"><div class="track-song">Nothing Else Matters</div><div class="track-artist">Metallica</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=32aac27fa297238360073ca72d16c726" target="_blank">Soundtrap →</a></div>
+      </div>
+      <div id="d5-side-B" class="track-table" style="display:none;">
+        <div class="track-row"><span class="track-num">B1</span><div class="track-info"><div class="track-song">Maggie May</div><div class="track-artist">Rod Stewart</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=54df93e21057dbd1bc9e26725560b2ff" target="_blank">Soundtrap →</a></div>
+        <div class="track-row"><span class="track-num">B2</span><div class="track-info"><div class="track-song">You May Be Right</div><div class="track-artist">Billy Joel</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=a5befe7f56718f94e63973db56d82605" target="_blank">Soundtrap →</a></div>
+        <div class="track-row"><span class="track-num">B3</span><div class="track-info"><div class="track-song">Tuesday's Gone</div><div class="track-artist">Metallica</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=7c001b7cc11b4c7c7a2d9227071e7de0" target="_blank">Soundtrap →</a></div>
+      </div>
+    </div>
+
+    <!-- DISC 6 -->
+    <div class="disc-panel" id="disc-6">
+      <div class="disc-header"><div class="disc-title-main"><em>The Maytallica Seven</em></div><div class="disc-subtitle">8 tracks (incl. Track 0 "One") · 38:51 · Pool 8</div></div>
+      <div class="side-tabs"><button class="side-tab active" onclick="showSide('d6','A',this)">Side A</button><button class="side-tab" onclick="showSide('d6','B',this)">Side B</button></div>
+      <div id="d6-side-A" class="track-table">
+        <div class="track-row"><span class="track-num">A1</span><div class="track-info"><div class="track-song">One <span class="badge">Track 0</span></div><div class="track-artist">Metallica</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=c27a850a0afb870b4577cee97777c3f4" target="_blank">Soundtrap →</a></div>
+        <div class="track-row"><span class="track-num">A2</span><div class="track-info"><div class="track-song">St. Anger</div><div class="track-artist">Metallica</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=8a58789376ce0eafeaad52c85c89bd39" target="_blank">Soundtrap →</a></div>
+        <div class="track-row"><span class="track-num">A3</span><div class="track-info"><div class="track-song">Whiskey in the Jar</div><div class="track-artist">Metallica</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=08a4218fcfcd5fa0e19b092d947606ff" target="_blank">Soundtrap →</a></div>
+      </div>
+      <div id="d6-side-B" class="track-table" style="display:none;">
+        <div class="track-row"><span class="track-num">B1</span><div class="track-info"><div class="track-song">Enter Sandman</div><div class="track-artist">Weezer</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=fde4214f2fe1a77b39c10724d9480a35" target="_blank">Soundtrap →</a></div>
+        <div class="track-row"><span class="track-num">B2</span><div class="track-info"><div class="track-song">You Don't Know How It Feels</div><div class="track-artist">Tom Petty</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=65bd8ed06cfad2c3d7f81984a4a8e862" target="_blank">Soundtrap →</a></div>
+        <div class="track-row"><span class="track-num">B3</span><div class="track-info"><div class="track-song">Dirty Work</div><div class="track-artist">Steely Dan</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=199eef6adbd9190414cc46437e509793" target="_blank">Soundtrap →</a></div>
+        <div class="track-row"><span class="track-num">B4</span><div class="track-info"><div class="track-song">Call Me Maybe</div><div class="track-artist">Carly Rae Jepsen</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=efeaf4a1183cadcd632d610271946368" target="_blank">Soundtrap →</a></div>
+        <div class="track-row"><span class="track-num">B5</span><div class="track-info"><div class="track-song">One Headlight</div><div class="track-artist">The Wallflowers</div></div><a class="track-link" href="https://www.soundtrap.com/signup?ref=27676ae7840ed7a2cd27a47308f13a28" target="_blank">Soundtrap →</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PROVENANCE ══ -->
+  <div class="section" id="section-provenance">
+    <div class="section-eyebrow">The Origin Arc</div>
+    <div class="section-title">How the pipeline was built</div>
+    <p class="body-text">Five chapters. One continuous research argument. Each step proven before the next began.</p>
+    <div class="arc-chapter" onclick="toggleArc(this)">
+      <div class="arc-chapter-head"><div><div class="arc-chapter-label">Chapter 1 · 2021–2022</div><div class="arc-chapter-title">The Covid Tapes</div></div><span class="arc-toggle">+</span></div>
+      <div class="arc-body">Remote Soundtrap collaboration with Ian Bruce (Ian McAvoy, San Jose CA). 132 tracks. Campbell River lockdown. The origin of the entire pipeline and the vinyl + craft spirits packaging concept.<br><br>Key recording: <strong>In Your Eyes</strong> (Peter Gabriel) — designated single of The Mariner's Song Project. Also: Living in Another World (Talk Talk, July 2, 2022), No Time to Die (Billie Eilish, May 2022).</div>
+    </div>
+    <div class="arc-chapter" onclick="toggleArc(this)">
+      <div class="arc-chapter-head"><div><div class="arc-chapter-label">Chapter 2 · Good Friday 2022, Las Vegas</div><div class="arc-chapter-title">Angel Eyes — Pipeline Realized</div></div><span class="arc-toggle">+</span></div>
+      <div class="arc-body">KaraFun + Soundtrap integration demonstrated as a research argument. The complete technical workflow proven in a single experiment.<br><br><a class="arc-link" href="https://on.soundcloud.com/WnhG8K9DlzDfME0Mqq" target="_blank">→ SoundCloud</a> &nbsp; <a class="arc-link" href="https://www.soundtrap.com/signup?ref=be5a249aa4c97ac444ecdae4bb880ee2" target="_blank">→ Soundtrap session</a></div>
+    </div>
+    <div class="arc-chapter" onclick="toggleArc(this)">
+      <div class="arc-chapter-head"><div><div class="arc-chapter-label">Chapter 3 · July 30, 2022</div><div class="arc-chapter-title">Bowen Island — Authorial Shift</div></div><span class="arc-toggle">+</span></div>
+      <div class="arc-body">First live performance to KaraFun backing tracks. Two Dean Martin songs as intro for The Naturals. The branching point where the Soundtrap pipeline becomes a live performance format. Authorial identity shifts from collaborator to solo performer.</div>
+    </div>
+    <div class="arc-chapter" onclick="toggleArc(this)">
+      <div class="arc-chapter-head"><div><div class="arc-chapter-label">Chapter 4 · December 2022</div><div class="arc-chapter-title">Dark Side of the Tree — Full Pipeline at Scale</div></div><span class="arc-toggle">+</span></div>
+      <div class="arc-body">Double album. 22 songs. All with Soundtrap sessions. Recorded at Podstream Studios Vancouver. Disc 2 Track 7: <em>About Today</em> by The National — first documented National song in Soundtrap.</div>
+    </div>
+    <div class="arc-chapter" onclick="toggleArc(this)">
+      <div class="arc-chapter-head"><div><div class="arc-chapter-label">Chapter 5 · 2026</div><div class="arc-chapter-title">Box Set 2026 — April Showers + Double Double</div></div><span class="arc-toggle">+</span></div>
+      <div class="arc-body">Six vinyl albums. 59 confirmed Soundtrap sessions, all clean. April Showers Vol. 1 is the entry point and primary collaboration pitch. Double Double is the four-disc centrepiece.</div>
+    </div>
+  </div>
+
+  <!-- ══ SEVEN INNING STRETCH ══ -->
+  <div class="section" id="section-series">
+    <div class="section-eyebrow">Episodic Series · 2025–present</div>
+    <div class="section-title">Seven Inning <em>Stretch</em></div>
+    <p class="body-text">Six seasons. Each season: 12 episodes. Each episode: 7 songs. Miller's Law (7±2) as design constraint.</p>
+    <div class="pull-quote"><p>Seven Screaming Trees karaoke tracks → seven-song sequence → Miller's Law → design principle.</p><cite>— The accidental architecture of the Stretch</cite></div>
+    <hr class="divider">
+    <div class="season-row"><div class="season-num">S1</div><div><div class="season-label">Season One</div><div class="season-episodes">Screaming Trees · Masters of Reality · Coldplay · Off-cuts · HS Reunion Sets 1-2-3 · The National · The Tragically Hip · Cracker · Season Finale</div></div></div>
+    <div class="season-row"><div class="season-num">S2</div><div><div class="season-label">Season Two — Monthly Theming System</div><div class="season-episodes">Pearl Jamuary · FebWHOary · Fleetwood March · April Winehouse · Royal Month of May · Dark Side of the June · National Anthems of July · Dog Days of August · Zepptember · Ozztober · Nirvember · AC/DCember</div></div></div>
+    <div class="season-row"><div class="season-num">S3</div><div><div class="season-label">Season Three</div><div class="season-episodes">CCR · Bob Seger · Country Croonin' · Neil Diamond · Dean Martin · Frank Sinatra Part 1 · Frank Sinatra Part 2 · Spy Songs &amp; Soundtracks · Tom Jones · Hozier · The Cult · St. Vincent</div></div></div>
+    <div class="season-row"><div class="season-num">S4</div><div><div class="season-label">Season Four</div><div class="season-episodes">Chris Isaak · Catherine Wheel · Talk Talk · Oasis A Side · Oasis B Side · Seven Charlatans of the UK · Pixies · Nada Surf · Tripping Daisy · Seven Nights in September · [Episodes 11-12 TBD]</div></div></div>
+    <div class="season-row"><div class="season-num">S5</div><div><div class="season-label">Season Five</div><div class="season-episodes">Episodes visible on Podstream SoundCloud — documentation in progress</div></div></div>
+    <div class="season-row"><div class="season-num">S6</div><div><div class="season-label">Season Six</div><div class="season-episodes">[Episodes 1-3 TBD] · Third Courses (Catherine Wheel) · Massive Attack Plan 7 · Lucky Number Seven (The Verve) · 6x7x8 (Six by Seven) · JSBX7 · The 9 Broadway-Seventh Avenue Local (Beastie Boys) · The 9 Return Fare (LCD Soundsystem) · Threefer Madness (Dandy Warhols/BJM) · Afterthoughts Season Finale (Built to Spill)</div></div></div>
+    <hr class="divider">
+    <div class="section-eyebrow">The Seven Game Series · Oct 2025–Mar 2026</div>
+    <div class="about-stat"><span class="about-label">Game 6</span><span class="about-value">St. Patrick's Day · Fionn MacCool's → Disc 1</span></div>
+    <div class="about-stat"><span class="about-label">Game 7</span><span class="about-value">March 28, 2026 · Cambie Village, MLB Opening Weekend → Disc 2</span></div>
+    <div class="about-stat"><span class="about-label">Pool 8</span><span class="about-value">April Showers Vol. 1+2, Maytallica Flowers, The Maytallica Seven → Discs 3–6</span></div>
+  </div>
+
+  <!-- ══ COLLABORATE ══ -->
+  <div class="section" id="section-contact">
+    <div class="section-eyebrow">Collaboration Invitation</div>
+    <div class="section-title">Working with <em>George Crooney</em></div>
+    <p class="body-text">The infrastructure exists. The sessions are built. The platform is Soundtrap — remote, asynchronous, session-based. What's needed is a vocal producer and engineer who can hear what the room produces when the plan meets the material conditions.</p>
+    <hr class="divider">
+    <div class="about-stat"><span class="about-label">Recording platform</span><span class="about-value">Soundtrap (cloud) + GarageBand</span></div>
+    <div class="about-stat"><span class="about-label">Backing tracks</span><span class="about-value">KaraFun — full orchestration</span></div>
+    <div class="about-stat"><span class="about-label">Distribution</span><span class="about-value">Podstream SoundCloud · Vimeo</span></div>
+    <div class="about-stat"><span class="about-label">Live partner</span><span class="about-value">Ian Bruce (Covid Tapes, 132 tracks)</span></div>
+    <div class="about-stat"><span class="about-label">National Archives link</span><span class="about-value">About Today · Dark Side of the Tree, Dec 2022</span></div>
+    <div class="about-stat"><span class="about-label">Grammy credibility bridge</span><span class="about-value">Direct text relationship — Matt Berninger, The National</span></div>
+    <div class="cta-block">
+      <div class="cta-title">April Showers Vol. 1 — Phase 2</div>
+      <div class="cta-body">Phase 1 (instrumental vinyl) is production-ready. Phase 2 is the vocal production — remote Soundtrap collaboration. 12 confirmed sessions. Entry point into the full Double Double ecosystem.</div>
+      <a class="cta-btn primary" href="mailto:joel@crooney.ca">Get in touch →</a>
+    </div>
+  </div>
+
+  <!-- ══ BOTTOM ARC NAVBAR ══ -->
+  <div class="arc-nav">
+    <span class="arc-nav-label">The Soundtrap Arc · 2021–2026 · A recursive autopoietic loop</span>
+    <div class="arc-nav-scroll">
+      <div class="arc-node active" onclick="showArcDetail('covid',this)">
+        <span class="arc-node-year">2021 – late 2022</span>
+        <span class="arc-node-title">The Covid Tapes</span>
+        <span class="arc-node-count">~132 tracks · Ian McAvoy</span>
+      </div>
+      <div class="arc-connector">→</div>
+      <div class="arc-node" onclick="showArcDetail('bridge',this)">
+        <span class="arc-node-year">Feb 2022 – Mar 2024</span>
+        <span class="arc-node-title">The Lanegan Bridge</span>
+        <span class="arc-node-count">Solo karaoke authority shift</span>
+      </div>
+      <div class="arc-connector">→</div>
+      <div class="arc-node" onclick="showArcDetail('travels24',this)">
+        <span class="arc-node-year">Feb 2024 – Feb 2025</span>
+        <span class="arc-node-title">Travels in Intertextuality '24</span>
+        <span class="arc-node-count">111 sessions · Bulwark arc</span>
+      </div>
+      <div class="arc-connector">→</div>
+      <div class="arc-node" onclick="showArcDetail('stretch',this)">
+        <span class="arc-node-year">2025</span>
+        <span class="arc-node-title">Seven Inning Stretch</span>
+        <span class="arc-node-count">6 seasons · 7 songs each</span>
+      </div>
+      <div class="arc-connector">→</div>
+      <div class="arc-node" onclick="showArcDetail('sgs',this)">
+        <span class="arc-node-year">Oct 2025 – Mar 2026</span>
+        <span class="arc-node-title">The Seven Game Series</span>
+        <span class="arc-node-count">7 games + Pool 8</span>
+      </div>
+      <div class="arc-connector">→</div>
+      <div class="arc-node" onclick="showArcDetail('april',this)">
+        <span class="arc-node-year">April 2026</span>
+        <span class="arc-node-title">April Showers Vol. 1 &amp; 2</span>
+        <span class="arc-node-count">22 tracks · Entry point</span>
+      </div>
+      <div class="arc-connector">→</div>
+      <div class="arc-node" onclick="showArcDetail('return',this)">
+        <span class="arc-node-year">May 2026</span>
+        <span class="arc-node-title">The Autopoietic Return</span>
+        <span class="arc-node-count">Loop closes · next cycle opens</span>
+      </div>
+      <div class="arc-connector" style="color:rgba(200,146,42,0.6);font-size:18px;">↺</div>
+    </div>
+
+    <!-- ARC DETAIL PANELS -->
+    <div class="arc-detail active" id="arc-covid">
+      <div class="arc-detail-eyebrow">2021 – Late 2022 · Origin</div>
+      <div class="arc-detail-title">The Covid Tapes — Ian McAvoy's Project, Discovered Through Podcasting</div>
+      <div class="arc-detail-body">The Covid Tapes begin with Ian McAvoy (San Jose / Mountain View CA), on lockdown in his home studio, finally acting on years of ideas about reimagining songs from the FM radio and vinyl album era of his youth. In early 2021 he began sending instrumental demos to Campbell River BC — the practitioner-researcher recording vocal takes in GarageBand and returning them via Google Drive.<br><br>
+      Soundtrap entered the picture not through music but through podcasting: early PhD research into podcasting and education had led to a Soundtrap account, and it quickly became clear that its cloud DAW architecture — the ability to manage multiple vocal takes, edit directly in the browser, and collaborate without moving files through Google Drive folders — was far more effective than the GarageBand/Drive workflow. The authorial stake remained primarily vocal: Ian arranged, produced, and mixed. The practitioner-researcher delivered takes into someone else's vision.<br><br>
+      The arc closes at the Podstream Holiday Special (late 2022) — the first project recorded entirely solo, at Podstream Studios Vancouver, using KaraFun backing tracks. The Covid Tapes sessions with Ian continued into early 2023, overlapping with this shift.</div>
+      <div class="arc-loop-note">→ The pipeline (KaraFun → GarageBand → Soundtrap) is inherited from this period, but the authorial model is not. The Covid Tapes establish the technical infrastructure; the Lanegan Bridge is where the practitioner-researcher takes authorial sovereignty over it.</div>
+    </div>
+    <div class="arc-detail" id="arc-bridge">
+      <div class="arc-detail-eyebrow">Feb 2022 – Mar 2024 · Overlapping · Authority Shift</div>
+      <div class="arc-detail-title">The Lanegan Bridge — From Vocal Contributor to Solo Author</div>
+      <div class="arc-detail-body">The Lanegan Bridge names the period in which the practitioner-researcher moves from vocal contributor (into Ian's production) to sole author of the complete chain: song selection, backing track sourcing, recording environment, vocal mix. It begins in February 2022 with the first use of KaraFun/karaoke backing tracks — overlapping with the tail of the Covid Tapes — and ends in February–March 2024 with the Mark Lanegan vocal covers recorded at Podstream Studios Vancouver using YouTube karaoke tracks and early AI tools.<br><br>
+      The Podstream Holiday Special (late 2022) is the first fully solo production — recorded in Podstream's professional audiometric pods, mixing vocals independently for the first time. Through 2023, sessions with Ian continued as carryover while the solo karaoke methodology consolidated. The Lanegan box set recordings (Feb–Mar 2024) — six sides of Lanegan covers — prototype the physical six-sided box format that becomes Box Set 2026.<br><br>
+      The trade-off of this period is named honestly: taking on vocal mixing authority comes at the cost of deferring to prefabricated karaoke instrumental tracks whose production values are anonymous and whose musical authority is, at best, serviceable. This is a variant of the mirage of authority — the backing track sounds professional, but nobody signed off on it as a musical statement.</div>
+      <div class="arc-loop-note">→ The Lanegan box set (March 2024) is the direct prototype for Box Set 2026. The loop between recording practice and packaging concept begins here.</div>
+    </div>
+    <div class="arc-detail" id="arc-travels24">
+      <div class="arc-detail-eyebrow">Feb 2024 – Feb 2025 · Expansion</div>
+      <div class="arc-detail-title">Travels in Intertextuality '24 — The Bulwark Arc</div>
+      <div class="arc-detail-body">111 sessions, February 2024 through February 2025 (with Ian collaborative carryover into early 2025). Seeded by the Bulwark podcast playlist — 205 episodes, each with a song/artist pairing that generated a Soundtrap session. The arc opens with the Mark Lanegan vocal covers (Feb–Mar 2024) — six sides recorded at Podstream Studios using YouTube karaoke tracks and early AI tools, prototyping the physical box format that becomes Box Set 2026. Further key clusters: Hozier, LCD Soundsystem, The Cult, St. Vincent, Kris Kristofferson tribute, Tom Jones Penthouse Suite. Note: many 2024 Soundtrap links need audit before public exposure.</div>
+      <div class="arc-loop-note">→ The Lanegan box set (Feb–Mar 2024) sits at the opening of this arc and is its first major output — the moment the Lanegan Bridge hands off to Travels in Intertextuality '24. The physical six-sided box packaging concept begins here.</div>
+    </div>
+    <div class="arc-detail" id="arc-stretch">
+      <div class="arc-detail-eyebrow">2025 · Episodic Structure</div>
+      <div class="arc-detail-title">Seven Inning Stretch — Miller's Law as Design Principle</div>
+      <div class="arc-detail-body">Six seasons, 12 episodes each, 7 songs per episode. The seven-song constraint originates in the availability of exactly seven Screaming Trees karaoke tracks — an accidental constraint adopted as a deliberate design principle via Miller's Law (7±2). Season 2 establishes the monthly theming system (Pearl Jamuary through AC/DCember) now embedded in the Audiofish card deck.</div>
+      <div class="arc-loop-note">→ The episodic format feeds directly into the Seven Game Series: the "game" as structural unit replaces the "episode," inheriting the seven-song constraint and the baseball metaphor.</div>
+    </div>
+    <div class="arc-detail" id="arc-sgs">
+      <div class="arc-detail-eyebrow">Oct 2025–Mar 2026 · Culmination</div>
+      <div class="arc-detail-title">The Seven Game Series — Live Performance as Playoff Format</div>
+      <div class="arc-detail-body">Seven games structured around the baseball playoff format. Game 6 (St. Patrick's Day 2026, Fionn MacCool's Vancouver) produces The Van Morrison Set — Disc 1 of the Double Double. Game 7 (March 28, 2026, Cambie Village, MLB Opening Weekend) produces Ten Innings in the Spring — Disc 2. Pool 8 generates April Showers Vol. 1 and 2, Maytallica Flowers, and The Maytallica Seven — Discs 3–6.</div>
+      <div class="arc-loop-note">→ The SGS is the activity system at full expansion: live venue, audience, Soundtrap sessions, setlist as vinyl sequence, craft spirits bundle as packaging. Every axis of the |F|D|S|L| framework is now in play.</div>
+    </div>
+    <div class="arc-detail" id="arc-april">
+      <div class="arc-detail-eyebrow">April 2026 · Entry Point + Loop Closure</div>
+      <div class="arc-detail-title">April Showers Vol. 1 &amp; 2 — The Vinyl Albums as Research Output</div>
+      <div class="arc-detail-body">Vol. 1 created April 19, 2026. 12 tracks, 2 sides, 6 songs each. All Soundtrap sessions confirmed clean. The definitive single-disc entry point into the Travels in Intertextuality ecosystem and the primary pitch artifact for Phase 2 vocal production. Vol. 2 extends the arc into Pool 8 with 10 further tracks. Together they close the 2021–2026 Soundtrap arc and re-open it as Phase 2 begins.</div>
+      <div class="arc-loop-note">↺ The Covid Tapes pipeline (2021) → Lanegan Bridge authorial shift (2022–2024) → Travels in Intertextuality '24 (2024) → Seven Inning Stretch episodic structure (2025) → Seven Game Series live format (2025–26) → April Showers Vol. 1 &amp; 2 (2026) → Phase 2 vocal production → Box Set 2026 → The Autopoietic Return.</div>
+    </div>
+
+    <div class="arc-detail" id="arc-return">
+      <div class="arc-detail-eyebrow">May 2026 · The System Produces Itself</div>
+      <div class="arc-detail-title">The Autopoietic Return — Loop as Method</div>
+      <div class="arc-detail-body">The Autopoietic Return is not a new phase — it is the recognition that what has been built is a self-producing system. From May 2026, the outputs of the 2021–2026 arc become the inputs for the next research cycle: the vinyl records generate live performances, the live performances generate new Soundtrap sessions, the sessions generate new records. The Box Set 2026 packaging assembles into its own container. The PhD publications theorize what the practice has already demonstrated.<br><br>
+      Autopoiesis (Maturana &amp; Varela, 1980) names the capacity of a system to produce and reproduce itself through its own operations. Applied here: the Soundtrap pipeline is no longer a tool being used by a researcher — it is a system that has internalized its own logic and begun generating the conditions for its own continuation. The practitioner-researcher is both inside the system and studying it from within. This is the research position.</div>
+      <div class="arc-loop-note">↺ The loop is the method. The method is the loop. The Autopoietic Return is where the PhD timeframe ends and the research publication begins.</div>
+    </div>
+  </div>
+
+</div>
+
+<footer class="subdomain-footer">
+  <nav class="footer-nav">
+    <a href="https://lab.crooney.ca">Lab</a>
+    <a href="https://phd.crooney.ca">PhD</a>
+    <a href="https://projects.crooney.ca">Projects</a>
+    <a href="https://vanisle.crooney.ca">VanIsle</a>
+    <a href="https://aries.crooney.ca/overview">Aries</a>
+  </nav>
+  <span class="footer-domain">soundtrap.crooney.ca</span>
+</footer>
+
+<script>
+  function showSection(id, btn) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('section-' + id).classList.add('active');
+    if (btn) btn.classList.add('active');
+  }
+
+  function showDisc(n, btn) {
+    document.querySelectorAll('.disc-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.disc-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('disc-' + n).classList.add('active');
+    if (btn) btn.classList.add('active');
+  }
+
+  function showSide(prefix, side, btn) {
+    var parent = btn.closest('.disc-panel') || btn.closest('.section');
+    parent.querySelectorAll('.side-tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    var a = document.getElementById(prefix + '-side-A');
+    var b = document.getElementById(prefix + '-side-B');
+    if (a) a.style.display = side === 'A' ? 'block' : 'none';
+    if (b) b.style.display = side === 'B' ? 'block' : 'none';
+  }
+
+  function toggleArc(el) { el.classList.toggle('expanded'); }
+  function toggleCycle(el) { el.classList.toggle('expanded'); }
+
+  function showArcDetail(id, btn) {
+    document.querySelectorAll('.arc-detail').forEach(d => d.classList.remove('active'));
+    document.querySelectorAll('.arc-node').forEach(n => n.classList.remove('active'));
+    document.getElementById('arc-' + id).classList.add('active');
+    if (btn) btn.classList.add('active');
+  }
+</script>
+</body>
+</html>
